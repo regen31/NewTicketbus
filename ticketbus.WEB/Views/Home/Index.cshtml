@@ -1,0 +1,25 @@
+﻿@model  ticketbus.WEB.Models.RouteViewModel
+@{
+    ViewBag.Title = "Home Page";
+
+    AjaxOptions ajaxOpts = new AjaxOptions()
+    {
+        UpdateTargetId = "tableBody"
+    };
+    Html.EnableClientValidation(false);
+}
+
+
+
+@using (Ajax.BeginForm("ShowTable", ajaxOpts))
+{
+    @Html.EditorFor(x => x.DateForSearch) <label>Дата отправления</label> <br />
+    @Html.EditorFor(x => x.StartPoint)<label>Город отправления</label><br />
+    @Html.EditorFor(x => x.FinalPoint)<label>Город прибытия</label><br />
+    <input type="submit" value="Поиск" />
+
+
+}
+<div id="tableBody"></div>
+
+

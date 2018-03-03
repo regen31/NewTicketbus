@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketbus.WEB", "ticketbus.WEB\ticketbus.WEB.csproj", "{BF496FBE-276C-4D78-99BB-3C39D7B304BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketbus.Domain", "ticketbus.Domain\ticketbus.Domain.csproj", "{8B27FA1D-EFE1-45F5-93A2-6C9A704CD5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ticketbus.Logic", "ticketbus.Logic\ticketbus.Logic.csproj", "{EA6A866D-E145-4930-AE71-0E0878109AF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF496FBE-276C-4D78-99BB-3C39D7B304BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF496FBE-276C-4D78-99BB-3C39D7B304BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF496FBE-276C-4D78-99BB-3C39D7B304BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF496FBE-276C-4D78-99BB-3C39D7B304BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B27FA1D-EFE1-45F5-93A2-6C9A704CD5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B27FA1D-EFE1-45F5-93A2-6C9A704CD5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B27FA1D-EFE1-45F5-93A2-6C9A704CD5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B27FA1D-EFE1-45F5-93A2-6C9A704CD5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6A866D-E145-4930-AE71-0E0878109AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6A866D-E145-4930-AE71-0E0878109AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6A866D-E145-4930-AE71-0E0878109AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6A866D-E145-4930-AE71-0E0878109AF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

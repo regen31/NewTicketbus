@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ticketbus.WEB.Models.RouteViewModel>
+
+
+
+<table>
+    <tr>
+        <th>Пункт отправления</th>
+        <th>Пункт прибытия</th>
+        <th>Время отправления</th>
+        <th>Время прибытия</th>
+    </tr>
+    @foreach (var rout in Model)
+    {
+        <tr>
+            <td>@rout.StartPoint</td>
+            <td>@rout.FinalPoint</td>
+            <td>@rout.DepartureTime</td>
+            <td>@rout.ArrivalTime</td>
+        </tr>
+
+    }
+</table>

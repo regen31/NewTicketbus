@@ -1,0 +1,5 @@
+ticketbus.Domain/bin/
+ticketbus.Domain/obj/
+ticketbus.WEB/bin/
+ticketbus.WEB/obj/
+.vs/
