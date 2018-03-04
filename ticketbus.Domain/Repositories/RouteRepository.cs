@@ -20,8 +20,52 @@ namespace ticketbus.Domain.Repositories
             db = new BusContext(connectionString);
         }
 
+
+        public Route GetRoute(int id)
+        {
+            return db.Routes.Find(id);
+        }
+
+        public IEnumerable<Route> GetAll()
+        {
+            return db.Routes;
+        }
         
-        
+        public void UpdateRoute(Route route)
+        {
+            var RouteFromDB = db.Routes.Find(route.Id);
+            if (RouteFromDB == null)
+                
+            {
+                db.Routes.Add(route);
+            }
+            else
+            {
+                RouteFromDB.StartPoint = route.StartPoint;
+                RouteFromDB.FinalPoint = route.FinalPoint;
+                RouteFromDB.DepartureTime = route.DepartureTime;
+                RouteFromDB.ArrivalTime = route.ArrivalTime;
+
+                RouteFromDB.Monday = route.Monday;
+                RouteFromDB.Tuesday = route.Tuesday;
+                RouteFromDB.Wednesday = route.Wednesday;
+                RouteFromDB.Thusday = route.Thusday;
+                RouteFromDB.Friday = route.Friday;
+                RouteFromDB.Saturday = route.Saturday;
+                RouteFromDB.Sunday = route.Sunday;
+            }
+            db.SaveChanges();
+        }
+
+
+        public void Delete(int id)
+        {
+            var route = db.Routes.Find(id);
+            db.Routes.Remove(route);
+            db.SaveChanges();
+            
+        }
+
         //здесь какая-то жуть
         public IEnumerable<Route> FindRoutes(string start, string final, DateTime date)  
         {

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ticketbus.Logic.DTO.RouteDTO>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Маршруты</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Пункт отправления
+        </th>
+        <th>
+            Пункт прибытия
+        </th>
+        <th>
+           Время отправления
+        </th>
+        <th>
+            Время прибытия
+        </th>
+        <th>
+            Понедельник
+        </th>
+        <th>
+            Вторник
+        </th>
+        <th>
+            Среда
+        </th>
+        <th>
+            Четверг
+        </th>
+        <th>
+            Пятница
+        </th>
+        <th>
+            Суббота
+        </th>
+        <th>
+            Воскресенье
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartPoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FinalPoint)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Monday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tuesday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wednesday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thusday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Friday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saturday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sunday)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditRoute", new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "DeleteRoute", new { id=item.Id })
+        </td>
+    </tr>
+}
+</table>
+<p>
+    @Html.ActionLink("Добавить новый маршрут", "CreateRoute")
+</p>
