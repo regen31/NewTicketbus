@@ -13,10 +13,11 @@ namespace ticketbus.WEB.Controllers
     public class HomeController : Controller
     {
         IRouteService RouteRepository;
-
-        public HomeController(IRouteService routerepository)
+        INewsService NewsRepository;
+        public HomeController(IRouteService routerepository, INewsService newsrepository)
         {
             RouteRepository = routerepository;
+            NewsRepository = newsrepository;
         }
 
         public ActionResult Index()                 
@@ -38,6 +39,21 @@ namespace ticketbus.WEB.Controllers
                 ViewList.Add(new RouteViewModel() { StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime });
             }
             return PartialView("ShowTable", ViewList);
+        }
+
+
+        public PartialViewResult ShowNews()
+        {
+            List<NewsViewModel> NewsList = new List<NewsViewModel>();
+            var News = NewsRepository.GetSomeDTO();
+            foreach(var item in News)
+            {
+                NewsList.Add(new NewsViewModel() {
+                    Date = item.Date,
+                    Text = item.Text,
+                });
+            }
+            return PartialView(NewsList);
         }
     }
 }

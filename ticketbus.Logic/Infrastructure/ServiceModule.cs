@@ -20,6 +20,7 @@ namespace ticketbus.Logic.Infrastructure
         public override void Load()
         {
             Bind<IRouteRepository>().To<RouteRepository>().WithConstructorArgument(connectionString);
+            Bind<INewsRepository>().To<NewsRepository>().WithConstructorArgument(connectionString);
         }
     }
 }
