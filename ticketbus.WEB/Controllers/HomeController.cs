@@ -18,6 +18,7 @@ namespace ticketbus.WEB.Controllers
         {
             RouteRepository = routerepository;
             NewsRepository = newsrepository;
+
         }
 
         public ActionResult Index()                 

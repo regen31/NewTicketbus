@@ -10,7 +10,7 @@ using ticketbus.Logic.DTO;
 
 namespace ticketbus.Logic.Services
 {
-    class NewsService : INewsService
+    public class NewsService : INewsService
     {
         INewsRepository NewsRepository;
 
@@ -48,7 +48,7 @@ namespace ticketbus.Logic.Services
 
         public void Create(NewsDTO item)
         {
-            NewsRepository.Create(new News() {
+            NewsRepository.Create(new NewsItem() {
                 Date = item.Date,
                 Text = item.Text,
             });

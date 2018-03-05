@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ticketbus.Domain.Entities
 {
-    public class News
+    public class NewsItem
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

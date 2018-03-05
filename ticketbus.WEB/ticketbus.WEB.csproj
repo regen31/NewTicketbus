@@ -179,7 +179,7 @@
     </Compile>
     <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Infrastructure\RouteModel.cs" />
+    <Compile Include="Infrastructure\DIModule.cs" />
     <Compile Include="Models\RouteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

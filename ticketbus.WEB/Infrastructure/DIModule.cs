@@ -8,11 +8,12 @@ using ticketbus.Logic.Interfaces;
 
 namespace ticketbus.WEB.Infrastructure
 {
-    public class RouteModel:NinjectModule
+    public class DIModule:NinjectModule
     {
         public override void Load()
         {
             Bind<IRouteService>().To<RouteService>();
+            Bind<INewsService>().To<NewsService>();
         }
     }
 }

@@ -2,9 +2,12 @@
 
 <hr />
 <h3>Новости</h3>
+@if (Model != null)
+{
 <table>
    <tr>
        <td>@Model.Date</td>
        <td>@Model.Text</td>
    </tr>
 </table>
+}

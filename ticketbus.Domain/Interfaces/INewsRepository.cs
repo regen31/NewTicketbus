@@ -9,10 +9,10 @@ namespace ticketbus.Domain.Interfaces
 {
     public interface INewsRepository
     {
-        News Get(int id);
-        IEnumerable<News> GetAll();
-        void Create(News item);
+        NewsItem Get(int id);
+        IEnumerable<NewsItem> GetAll();
+        void Create(NewsItem item);
         void Delete(int id);
-        IEnumerable<News> GetSome();
+        IEnumerable<NewsItem> GetSome();
     }
 }

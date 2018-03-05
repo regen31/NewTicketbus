@@ -19,32 +19,32 @@ namespace ticketbus.Domain.Repositories
             db = new BusContext(connectionString);
         }
 
-        public News Get(int id)
+        public NewsItem Get(int id)
         {
-            return db.News.Find(id);
+            return db.NewsItems.Find(id);
         }
 
-        public IEnumerable<News> GetAll()
+        public IEnumerable<NewsItem> GetAll()
         {
-            return db.News;
+            return db.NewsItems;
         }
 
-        public void Create(News item)
+        public void Create(NewsItem item)
         {
-            db.News.Add(item);
+            db.NewsItems.Add(item);
             db.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            var item = db.News.Find(id);
-            db.News.Remove(item);
+            var item = db.NewsItems.Find(id);
+            db.NewsItems.Remove(item);
             db.SaveChanges();
         }
 
-        public IEnumerable<News> GetSome() {
+        public IEnumerable<NewsItem> GetSome() {
 
-            var items = db.News.Take(5).OrderByDescending(x=>x.Date);
+            var items = db.NewsItems.Take(5).OrderByDescending(x=>x.Date);
             return items;
         }
     }

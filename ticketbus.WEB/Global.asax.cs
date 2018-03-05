@@ -23,9 +23,9 @@ namespace ticketbus.WEB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // внедрение зависимостей
-            NinjectModule RouteModule = new RouteModel();
+            NinjectModule DIModule = new DIModule();
             NinjectModule ServiceModule = new ServiceModule("DBConnection");
-            var kernel = new StandardKernel(RouteModule, ServiceModule);
+            var kernel = new StandardKernel(DIModule, ServiceModule);
             kernel.Unbind<ModelValidatorProvider>();
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }

@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EFContext\BusContext.cs" />
-    <Compile Include="Entities\News.cs" />
+    <Compile Include="Entities\NewsItem.cs" />
     <Compile Include="Interfaces\INewsRepository.cs" />
     <Compile Include="Interfaces\IRouteRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
