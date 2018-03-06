@@ -42,8 +42,8 @@ namespace ticketbus.WEB.Controllers
             return PartialView("ShowTable", ViewList);
         }
 
-
-        public PartialViewResult ShowNews()
+        [ChildActionOnly]
+        public ActionResult ShowNews()
         {
             List<NewsViewModel> NewsList = new List<NewsViewModel>();
             var News = NewsRepository.GetSomeDTO();

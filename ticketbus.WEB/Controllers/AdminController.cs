@@ -5,34 +5,34 @@ using System.Web;
 using System.Web.Mvc;
 using ticketbus.Logic.DTO;
 using ticketbus.Logic.Interfaces;
+using ticketbus.WEB.Models;
 
 namespace ticketbus.WEB.Controllers
 {
     public class AdminController : Controller
     {
         IRouteService RouteRepository;
+        INewsService NewsRepository;
 
-        public AdminController(IRouteService RouteRepository)
+        public AdminController(IRouteService RouteRepository, INewsService newsrepo)
         {
             this.RouteRepository = RouteRepository;
+            NewsRepository = newsrepo;
         }
 
 
         public ActionResult Index()
         {
-
+            
             return View(RouteRepository.GetAllRoutes());
+
         }
 
-       
-
-        
-        public ActionResult CreateRoute()
+         public ActionResult CreateRoute()
         {
-
-            return View();
+            return View(new RouteDTO());
         }
-
+        
 
         // POST: Admin/Create
         [HttpPost]
@@ -65,6 +65,31 @@ namespace ticketbus.WEB.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [ChildActionOnly]
+        public ActionResult ShowNews()
+        {
+            return PartialView(NewsRepository.GetAllDTO());            
+        }
+
+        public ActionResult DeleteNews(int id)
+        {
+            NewsRepository.Delete(id);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult CreateNews()
+        {
+            return View(new NewsViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult CreateNews(NewsViewModel model)
+        {
+            NewsRepository.Create(new NewsDTO() {
+                Date = model.Date,
+                Text = model.Text,
+            });
+            return RedirectToAction("Index");
+        }
     }
 }

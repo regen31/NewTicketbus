@@ -26,7 +26,7 @@ namespace ticketbus.Domain.Repositories
 
         public IEnumerable<NewsItem> GetAll()
         {
-            return db.NewsItems;
+            return db.NewsItems.OrderByDescending(x => x.Date);
         }
 
         public void Create(NewsItem item)

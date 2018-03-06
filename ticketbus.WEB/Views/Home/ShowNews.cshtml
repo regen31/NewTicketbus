@@ -1,13 +1,14 @@
-﻿@model ticketbus.WEB.Models.NewsViewModel
+﻿@model IEnumerable<ticketbus.WEB.Models.NewsViewModel>
 
 <hr />
 <h3>Новости</h3>
-@if (Model != null)
-{
+
 <table>
+@foreach (var item in Model)
+{
    <tr>
-       <td>@Model.Date</td>
-       <td>@Model.Text</td>
+       <td>@item.Date.ToShortDateString()</td>
+       <td>@item.Text</td>
    </tr>
-</table>
 }
+</table>

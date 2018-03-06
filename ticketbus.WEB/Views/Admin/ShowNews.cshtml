@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ticketbus.Logic.DTO.NewsDTO>
+
+<h3>Новости</h3>
+<table class="table">
+    <tr>
+        <th>
+            Дата
+        </th>
+        <th>
+           Текст
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>           
+            @Html.ActionLink("Удалить", "DeleteNews", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Добавить новую", "CreateNews")
+</p>

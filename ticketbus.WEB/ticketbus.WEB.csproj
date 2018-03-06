@@ -225,6 +225,8 @@
     <Content Include="Views\Admin\CreateRoute.cshtml" />
     <Content Include="Views\Admin\EditRoute.cshtml" />
     <Content Include="Views\Home\ShowNews.cshtml" />
+    <Content Include="Views\Admin\ShowNews.cshtml" />
+    <Content Include="Views\Admin\CreateNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
