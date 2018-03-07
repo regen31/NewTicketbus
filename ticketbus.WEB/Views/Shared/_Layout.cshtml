@@ -9,7 +9,12 @@
 </head>
 <body>
     <h1>Система продажи билетов на автобусы</h1>
-
+    @using (Html.BeginForm("Login", "Account"))
+    {
+        <p>Логин</p>
+        @Html.TextBox("login")
+        <input type="submit" value="Ну давай" />
+    }
     <br />
     @RenderBody()
 </body>

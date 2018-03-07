@@ -13,6 +13,8 @@ namespace ticketbus.Domain.EFContext
         public BusContext(string connectionString) : base(connectionString) { }
         public DbSet <Route> Routes { get; set; }
         public DbSet <NewsItem> NewsItems { get; set; }
+        public DbSet <User> Users { get; set; }
+        public DbSet <Role> Roles { get; set; }
 
         
     }

@@ -14,6 +14,7 @@ namespace ticketbus.WEB.Infrastructure
         {
             Bind<IRouteService>().To<RouteService>();
             Bind<INewsService>().To<NewsService>();
+            Bind<IUserService>().To<UserService>();
         }
     }
 }

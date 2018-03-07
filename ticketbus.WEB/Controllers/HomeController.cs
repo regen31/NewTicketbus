@@ -23,7 +23,7 @@ namespace ticketbus.WEB.Controllers
 
         public ActionResult Index()                 
         {
-            
+
             return View(new RouteViewModel());
         }
 
