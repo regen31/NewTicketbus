@@ -22,7 +22,8 @@ namespace ticketbus.Domain.Repositories
 
         public User FindUser(string name)
         {
-           return db.Users.Include(x => x.UserRole).Where(x => x.Login == name).First();
+            var user = db.Users.Include(x => x.UserRole).Where(x => x.Login == name).FirstOrDefault();
+            return user;
         }
     }
 }

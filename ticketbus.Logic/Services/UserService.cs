@@ -23,16 +23,22 @@ namespace ticketbus.Logic.Services
         public UserDTO FindUser(string name)
         {
             var user = UserRepository.FindUser(name);
-            RoleDTO roledto = new RoleDTO() {
-                Name = user.UserRole.Name
-            };
+            if (user != null)
+            {
+                RoleDTO roledto = new RoleDTO()
+                {
+                    Name = user.UserRole.Name
+                };
 
-            return new UserDTO() {
-                Id = user.Id,
-                Login = user.Login,
-                Password = user.Password,
-                UserRole = roledto
-                            };
+                return new UserDTO()
+                {
+                    Id = user.Id,
+                    Login = user.Login,
+                    Password = user.Password,
+                    UserRole = roledto
+                };
+            }
+            return null;
         }
     }
 }

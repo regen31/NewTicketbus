@@ -19,15 +19,34 @@ namespace ticketbus.WEB.Controllers
             UserRepository = repo;
         }
 
-        public ActionResult Login(string login)
+        [ChildActionOnly]
+        public ActionResult Login()
         {
-            var user = UserRepository.FindUser(login);
-
-            if (user != null)
+            if (User.Identity.IsAuthenticated)
             {
-                FormsAuthentication.SetAuthCookie(user.Login, true);
+                return PartialView("LoginOK", new UserViewModel() {Name = User.Identity.Name });
             }
 
+            return PartialView("LoginNot");
+        }
+
+        [HttpPost]
+        public ActionResult Login(UserViewModel usermodel)
+        {
+            var user = UserRepository.FindUser(usermodel.Name);
+
+            if (user != null && user.Password==usermodel.Password )
+            {
+                FormsAuthentication.SetAuthCookie(user.Login, true);
+            }            
+            return RedirectToAction("Index", "Home");
+           
+        }
+
+        [HttpPost]
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
     }

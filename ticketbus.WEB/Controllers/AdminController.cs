@@ -9,6 +9,7 @@ using ticketbus.WEB.Models;
 
 namespace ticketbus.WEB.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         IRouteService RouteRepository;
