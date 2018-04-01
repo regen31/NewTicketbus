@@ -10,6 +10,10 @@ namespace ticketbus.Domain.EFContext
 {
     class BusContext : DbContext
     {
+        static BusContext()
+        {
+            Database.SetInitializer<BusContext>(new DBInitializer());
+        }
         public BusContext(string connectionString) : base(connectionString) { }
         public DbSet <Route> Routes { get; set; }
         public DbSet <NewsItem> NewsItems { get; set; }
