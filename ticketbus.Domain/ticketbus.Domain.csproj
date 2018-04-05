@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="EFContext\BusContext.cs" />
     <Compile Include="EFContext\DBInitializer.cs" />
+    <Compile Include="Entities\BoughtTicket.cs" />
     <Compile Include="Entities\NewsItem.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />

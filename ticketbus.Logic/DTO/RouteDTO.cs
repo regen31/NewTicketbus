@@ -13,6 +13,7 @@ namespace ticketbus.Logic.DTO
         public string FinalPoint { get; set; }
         public string DepartureTime { get; set; }
         public string ArrivalTime { get; set; }
+        public int Seats { get; set; }
 
         public bool Monday { get; set; }
         public bool Tuesday { get; set; }

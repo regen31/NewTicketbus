@@ -47,6 +47,7 @@ namespace ticketbus.Domain.Repositories
                 RouteFromDB.FinalPoint = route.FinalPoint;
                 RouteFromDB.DepartureTime = route.DepartureTime;
                 RouteFromDB.ArrivalTime = route.ArrivalTime;
+                RouteFromDB.Seats = route.Seats;
 
                 RouteFromDB.Monday = route.Monday;
                 RouteFromDB.Tuesday = route.Tuesday;

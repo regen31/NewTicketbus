@@ -237,6 +237,7 @@
     <Content Include="Views\Account\LoginOK.cshtml" />
     <Content Include="Views\Account\LoginNOT.cshtml" />
     <Content Include="Views\Account\LoginForm.cshtml" />
+    <Content Include="Views\Home\ShowAllRoutes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -30,6 +30,7 @@ namespace ticketbus.Logic.Services
                 FinalPoint = route.FinalPoint,
                 DepartureTime = route.DepartureTime,
                 ArrivalTime = route.ArrivalTime,
+                Seats = route.Seats,
 
                 Monday = route.Monday,
                 Tuesday = route.Tuesday,
@@ -54,6 +55,7 @@ namespace ticketbus.Logic.Services
                     FinalPoint = route.FinalPoint,
                     DepartureTime = route.DepartureTime,
                     ArrivalTime = route.ArrivalTime,
+                    Seats = route.Seats,
 
                     Monday = route.Monday,
                     Tuesday = route.Tuesday,
@@ -77,6 +79,7 @@ namespace ticketbus.Logic.Services
                     FinalPoint = route.FinalPoint,
                     DepartureTime = route.DepartureTime,
                     ArrivalTime = route.ArrivalTime,
+                    Seats = route.Seats,
 
                     Monday = route.Monday,
                     Tuesday = route.Tuesday,
@@ -98,6 +101,7 @@ namespace ticketbus.Logic.Services
             RouteFromDB.FinalPoint = route.FinalPoint;
             RouteFromDB.DepartureTime = route.DepartureTime;
             RouteFromDB.ArrivalTime = route.ArrivalTime;
+            RouteFromDB.Seats = route.Seats;
 
             RouteFromDB.Monday = route.Monday;
             RouteFromDB.Tuesday = route.Tuesday;
@@ -130,6 +134,7 @@ namespace ticketbus.Logic.Services
                     FinalPoint = route.FinalPoint,
                     DepartureTime = route.DepartureTime,
                     ArrivalTime = route.ArrivalTime,
+                    Seats = route.Seats,
                 };
                 RoutesForReturn.Add(dto);             
             }

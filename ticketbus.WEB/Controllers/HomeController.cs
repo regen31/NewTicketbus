@@ -32,25 +32,11 @@ namespace ticketbus.WEB.Controllers
         [HttpPost]
         public ActionResult LoginForm(UserViewModel usermodel)
         {
-            var user = UserRepository.FindUser(usermodel.Name);
-
-            try
-            {
-
-                if (usermodel.Password != user.Password)
-                    ModelState.AddModelError("Password", "Неправильный пароль");
-            }
-
-            catch
-            {
-                ModelState.AddModelError("Name", "Такого пользователя не существует");
-            }
 
             if (ModelState.IsValid)
-                FormsAuthentication.SetAuthCookie(user.Login, true);
+                FormsAuthentication.SetAuthCookie(usermodel.Name, true);
 
             return View();
-
         }
 
 
@@ -63,7 +49,7 @@ namespace ticketbus.WEB.Controllers
 
             foreach (var FindedRoute in FindedRoutes)
             {
-                ViewList.Add(new RouteViewModel() { StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime });
+                ViewList.Add(new RouteViewModel() { StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime, Seats = FindedRoute.Seats, });
             }
             return PartialView("ShowTable", ViewList);
         }
@@ -81,6 +67,20 @@ namespace ticketbus.WEB.Controllers
                 });
             }
             return PartialView(NewsList);
+        }
+
+        [ChildActionOnly]
+        public ActionResult ShowAllRoutes()
+        {
+            List<RouteViewModel> AllRoutes = new List<RouteViewModel>();
+
+            var allformDB = RouteRepository.GetAllRoutes();
+
+            foreach (var route in allformDB)
+            {
+                AllRoutes.Add(new RouteViewModel() {StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartureTime = route.DepartureTime, ArrivalTime = route.ArrivalTime, Seats = route.Seats });
+            }
+            return PartialView(AllRoutes);
         }
     }
 }

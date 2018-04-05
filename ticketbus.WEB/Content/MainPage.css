@@ -33,7 +33,13 @@
     display: none;
     height: 60px;
     border: none;
-    background-color: #777;    
+    background-color: #777;
+    border-radius: 3px;    
+}
+.button-in-header:hover{
+    background-color: rgba(119,119,119, 0.7);
+    border: 1px solid rgb(78,186,32);
+    cursor: pointer;
 }
 
 
@@ -49,7 +55,21 @@
     bottom: 2px;
 }
 
+/* styles for table */
+#routes-table
+{       
+    vertical-align: middle;    
+    border-collapse: separate;    
+    
+}
+#routes-table td, th{    
+    padding: 5px 2px;
+    
+}
 
+#routes-table tr:nth-child(2n){
+    background-color: #e3e3e3;
+}
 
 input[type="date"],
 input[type="text"],

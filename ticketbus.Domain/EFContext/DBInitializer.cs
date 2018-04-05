@@ -13,15 +13,15 @@ namespace ticketbus.Domain.EFContext
 
         protected override void Seed(BusContext context)
         {
-            List<Route> routes = new List<Route> { new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "МИНСК", FinalPoint = "БРЕСТ", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "БЕЛОВЕЖСКАЯ ПУЩА", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БЕЛОВЕЖСКИЙ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЕЛЬЯМОВИЧИ", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЫСОКОЕ", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "ВЫСОКОЕ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ДОМАЧЕВО", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ЖАБИНКА", DepartureTime = "13.00", ArrivalTime = "15.00", Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+            List<Route> routes = new List<Route> { new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "МИНСК", FinalPoint = "БРЕСТ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "БЕЛОВЕЖСКАЯ ПУЩА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БЕЛОВЕЖСКИЙ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЕЛЬЯМОВИЧИ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЫСОКОЕ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "ВЫСОКОЕ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ДОМАЧЕВО", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ЖАБИНКА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
         };
             List<NewsItem> news = new List<NewsItem> {
                 new NewsItem() { Date = DateTime.Now.Date, Text = "Какая замечательная новость" },
