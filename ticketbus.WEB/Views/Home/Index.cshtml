@@ -9,18 +9,28 @@
 }
 
 
-
-@using (Ajax.BeginForm("ShowTable", ajaxOpts))
-{
-    @Html.EditorFor(x => x.DateForSearch) <label>Дата отправления</label> <br />
-    @Html.EditorFor(x => x.StartPoint)<label>Город отправления</label><br />
-    @Html.EditorFor(x => x.FinalPoint)<label>Город прибытия</label><br />
-    <input type="submit" value="Поиск" />
-
-
-}
+<div class="search-form">
+    @using (Ajax.BeginForm("ShowTable", ajaxOpts))
+    {
+        <div class="block dateblock">
+            <span>Дата отправления</span><br /> @Html.EditorFor(x => x.DateForSearch)
+        </div>
+        <div class="block">
+            <span>Точка отправления</span><br />@Html.EditorFor(x => x.StartPoint)
+        </div>
+        <div class="block">
+            <span>Точка прибытия</span><br />@Html.EditorFor(x => x.FinalPoint)
+        </div>
+        <input type="submit" value="Поиск" />
+    }
+</div>
 <div id="tableBody"></div>
 
 
 @Html.Action("ShowNews")
+
+
+@Html.Action("Login","Account")
+
+                                    
 

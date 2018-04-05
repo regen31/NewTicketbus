@@ -1,0 +1,106 @@
+﻿body {
+    margin: 0;
+    font-family: Cambria, Georgia, "Times New Roman";
+}
+
+
+.header{ 
+    display: flex;
+    background-color: #444;
+    min-height: 60px;
+    width: 100%;
+    
+    
+}
+.header span
+{
+    font: bold 1em "Arial Narrow", "Franklin Gothic Medium", Arial;
+    color: white;
+    margin-left: 5%;
+    font-size: 35px;
+    line-height:60px;
+}
+
+
+.header-buttons{
+
+    margin:auto;
+    
+}
+
+.button-in-header
+{    
+    display: none;
+    height: 60px;
+    border: none;
+    background-color: #777;    
+}
+
+
+
+.block{
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    
+}
+.dateblock {
+    position:relative;
+    bottom: 2px;
+}
+
+
+
+input[type="date"],
+input[type="text"],
+input[type="password"]
+{
+   padding-left: 5px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   height: 25px;
+   width: 250px;
+   box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+input[type="submit"]{
+    font-weight:bold;
+    padding-bottom: 3px;
+    padding-top: 4px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    background-color: rgb(78,186,32);
+    border-radius: 10px;
+}
+
+input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: rgba(78,186,32, 0.8);
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
+ 
+input.input-validation-error {
+    border: 2px solid #b94a48;
+}
+ 
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+ 
+.validation-summary-errors {
+    color: #b94a48;
+}
+ 
+.validation-summary-valid {
+    display: none;
+}

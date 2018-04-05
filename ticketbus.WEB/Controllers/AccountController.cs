@@ -18,6 +18,39 @@ namespace ticketbus.WEB.Controllers
         {
             UserRepository = repo;
         }
+        
+
+        [ChildActionOnly]
+        public ActionResult LoginForm()
+        {
+            return PartialView();
+        }
+
+
+        [HttpPost]
+        public ActionResult LoginForm(UserViewModel usermodel)
+        {
+            var user = UserRepository.FindUser(usermodel.Name);
+
+            if (ModelState.IsValid)
+            {
+                FormsAuthentication.SetAuthCookie(user.Login, true);
+                return RedirectToAction("Index", "Home");
+            }
+
+            return PartialView("LoginForm");
+        }
+
+
+
+        public JsonResult IsLogin()
+        {
+            if (User.Identity.IsAuthenticated)            
+                return Json(true, JsonRequestBehavior.AllowGet);
+            else
+                return Json(false, JsonRequestBehavior.AllowGet);
+
+        }
 
         [ChildActionOnly]
         public ActionResult Login()
@@ -28,22 +61,9 @@ namespace ticketbus.WEB.Controllers
             }
 
             return PartialView("LoginNot");
-        }
+        }       
 
-        [HttpPost]
-        public ActionResult Login(UserViewModel usermodel)
-        {
-            var user = UserRepository.FindUser(usermodel.Name);
-
-            if (user != null && user.Password==usermodel.Password )
-            {
-                FormsAuthentication.SetAuthCookie(user.Login, true);
-            }            
-            return RedirectToAction("Index", "Home");
-           
-        }
-
-        [HttpPost]
+        
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();

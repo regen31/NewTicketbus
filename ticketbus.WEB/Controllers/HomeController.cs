@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ticketbus.Logic.Interfaces;
 using ticketbus.Logic.DTO;
 using ticketbus.WEB.Models;
+using System.Web.Security;
 
 
 namespace ticketbus.WEB.Controllers
@@ -14,20 +15,45 @@ namespace ticketbus.WEB.Controllers
     {
         IRouteService RouteRepository;
         INewsService NewsRepository;
-        public HomeController(IRouteService routerepository, INewsService newsrepository)
+        IUserService UserRepository;
+        public HomeController(IRouteService routerepository, INewsService newsrepository, IUserService userrepository)
         {
             RouteRepository = routerepository;
             NewsRepository = newsrepository;
-
+            UserRepository = userrepository;
         }
 
         public ActionResult Index()                 
         {
 
-            return View(new RouteViewModel());
+            return View();
         }
 
-       
+        [HttpPost]
+        public ActionResult LoginForm(UserViewModel usermodel)
+        {
+            var user = UserRepository.FindUser(usermodel.Name);
+
+            try
+            {
+
+                if (usermodel.Password != user.Password)
+                    ModelState.AddModelError("Password", "Неправильный пароль");
+            }
+
+            catch
+            {
+                ModelState.AddModelError("Name", "Такого пользователя не существует");
+            }
+
+            if (ModelState.IsValid)
+                FormsAuthentication.SetAuthCookie(user.Login, true);
+
+            return View();
+
+        }
+
+
         [HttpPost]
         public ActionResult ShowTable(RouteViewModel route)
         {

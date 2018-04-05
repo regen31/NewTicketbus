@@ -1,0 +1,25 @@
+﻿@model ticketbus.WEB.Models.UserViewModel
+
+
+    <div class="loginform" id="SignInForm">
+        
+    @using (Ajax.BeginForm("LoginForm", "Account", null, new AjaxOptions {UpdateTargetId ="over-lay", OnSuccess = "alert(result)"}))
+    {
+
+
+        @Html.LabelFor(x => x.Name)<br />
+        @Html.ValidationMessageFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+
+
+        @Html.LabelFor(x => x.Password)<br />
+        @Html.ValidationMessageFor(x => x.Password)
+        @Html.EditorFor(x => x.Password)
+        <input type="submit" class="submitbutton" value="Войти" />
+
+        @Html.ValidationSummary(true)
+    }
+        </div>
+
+
+

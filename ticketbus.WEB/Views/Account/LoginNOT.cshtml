@@ -1,13 +1,3 @@
 ﻿@model ticketbus.WEB.Models.UserViewModel
 
-@using (Html.BeginForm("Login", "Account"))
-{
-    @ViewBag.Message
-    <em>Логин</em>
-    @Html.EditorFor(x => x.Name)
-    @Html.ValidationMessageFor(model => model.Name)
-    <em>Пароль</em>
-    @Html.EditorFor(x => x.Password)
-    @Html.ValidationMessageFor(model => model.Password)
-    <input type="submit" value="Войти" />
-}
+<h3>Нет авторизации</h3>

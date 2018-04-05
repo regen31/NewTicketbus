@@ -33,6 +33,8 @@ namespace ticketbus.Domain.Repositories
         
         public void UpdateRoute(Route route)
         {
+            route.StartPoint = route.StartPoint.ToUpper();
+            route.FinalPoint = route.FinalPoint.ToUpper();
             var RouteFromDB = db.Routes.Find(route.Id);
             if (RouteFromDB == null)
                 
@@ -71,11 +73,11 @@ namespace ticketbus.Domain.Repositories
         {
             string dateforsearch = date.DayOfWeek.ToString();
             List<Route> RoutesToReturn = new List<Route>();
-
+            
             //берем из базы маршруты, которые совпадают по точке отправления и точке назначения
             var routes =
                 from r in db.Routes
-                where r.StartPoint == start && r.FinalPoint == final
+                where r.StartPoint == start.ToUpper() && r.FinalPoint == final.ToUpper()
                 select r;
 
             //а с помощью этой чудо-конструкции формируем список тех, которые отправляются в указанный день недели
