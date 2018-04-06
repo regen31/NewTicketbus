@@ -1,16 +1,11 @@
 ﻿@model  ticketbus.WEB.Models.RouteViewModel
 @{
-    ViewBag.Title = "Home Page";
-
-    AjaxOptions ajaxOpts = new AjaxOptions()
-    {
-        UpdateTargetId = "tableBody"
-    };
+    ViewBag.Title = "Home Page";    
 }
 
 
 <div class="search-form">
-    @using (Ajax.BeginForm("ShowTable", ajaxOpts))
+    @using (Ajax.BeginForm("ShowTable", new AjaxOptions { UpdateTargetId = "tableBody", OnSuccess = "IsLogin" }))
     {
         <div class="block dateblock">
             <span>Дата отправления</span><br /> @Html.EditorFor(x => x.DateForSearch)

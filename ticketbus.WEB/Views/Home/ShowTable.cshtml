@@ -4,6 +4,7 @@
 
 <table id="routes-table">
     <tr>
+        <td>Заказ</td>
         <th>Пункт отправления</th>
         <th>Пункт прибытия</th>
         <th>Количество мест</th>
@@ -13,6 +14,7 @@
     @foreach (var rout in Model)
     {
         <tr>
+            <td><button class="order-button" routeId="@rout.Id" searchDate="@rout.DateForSearch">Купить</button></td>
             <td>@rout.StartPoint</td>
             <td>@rout.FinalPoint</td>
             <td>@rout.Seats</td>

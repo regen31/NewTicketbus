@@ -49,7 +49,7 @@ namespace ticketbus.WEB.Controllers
 
             foreach (var FindedRoute in FindedRoutes)
             {
-                ViewList.Add(new RouteViewModel() { StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime, Seats = FindedRoute.Seats, });
+                ViewList.Add(new RouteViewModel() { DateForSearch = route.DateForSearch, Id = FindedRoute.Id, StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime, Seats = FindedRoute.Seats, });
             }
             return PartialView("ShowTable", ViewList);
         }

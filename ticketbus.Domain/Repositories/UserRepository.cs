@@ -25,5 +25,11 @@ namespace ticketbus.Domain.Repositories
             var user = db.Users.Include(x => x.UserRole).Where(x => x.Login == name).FirstOrDefault();
             return user;
         }
+
+        public void AddTicket(BoughtTicket ticket)
+        {
+            db.BoughtTickets.Add(ticket);
+            db.SaveChanges();
+        }
     }
 }

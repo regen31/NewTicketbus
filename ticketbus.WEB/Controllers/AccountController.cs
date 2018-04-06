@@ -52,16 +52,7 @@ namespace ticketbus.WEB.Controllers
 
         }
 
-        [ChildActionOnly]
-        public ActionResult Login()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return PartialView("LoginOK", new UserViewModel() {Name = User.Identity.Name });
-            }
-
-            return PartialView("LoginNot");
-        }       
+        
 
         
         public ActionResult LogOff()

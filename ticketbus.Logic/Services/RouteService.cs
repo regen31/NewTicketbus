@@ -130,6 +130,7 @@ namespace ticketbus.Logic.Services
             {
                 RouteDTO dto = new RouteDTO()
                 {
+                    Id = route.Id,
                     StartPoint = route.StartPoint,
                     FinalPoint = route.FinalPoint,
                     DepartureTime = route.DepartureTime,

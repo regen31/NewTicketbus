@@ -40,5 +40,18 @@ namespace ticketbus.Logic.Services
             }
             return null;
         }
+
+
+        public void AddBoughtTicket(BoughtTicketDTO ticket)
+        {
+            UserRepository.AddTicket(new BoughtTicket {
+
+                RouteId = ticket.RouteId,
+                Buyer = ticket.Buyer,
+                StartPoint = ticket.StartPoint,
+                FinalPoint = ticket.FinalPoint,
+                BuyDay = ticket.BuyDay,
+            });
+        }
     }
 }

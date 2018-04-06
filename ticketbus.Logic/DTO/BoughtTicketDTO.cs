@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ticketbus.Domain.Entities
+namespace ticketbus.Logic.DTO
 {
-   public class BoughtTicket
+    public class BoughtTicketDTO
     {
-        public int Id { get; set; }
+        
         public int RouteId { get; set; }
         public string Buyer { get; set; }
 

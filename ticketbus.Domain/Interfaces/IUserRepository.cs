@@ -10,5 +10,6 @@ namespace ticketbus.Domain.Interfaces
     public interface IUserRepository
     {
         User FindUser(string name);
+        void AddTicket (BoughtTicket ticket);
     }
 }

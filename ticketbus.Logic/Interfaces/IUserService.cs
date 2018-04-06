@@ -10,5 +10,6 @@ namespace ticketbus.Logic.Interfaces
     public interface IUserService
     {
         UserDTO FindUser(string name);
+        void AddBoughtTicket(BoughtTicketDTO ticket);
     }
 }
