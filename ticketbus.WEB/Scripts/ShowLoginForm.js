@@ -3,6 +3,7 @@ function IsLogin(){
     var $SignInButton = $("#SignInButton");
     var $RegistrationButton = $("#RegistrationButton");
     var $LogOffButton = $("#LogOffButton");
+    var $OrderHistoryButton = $("#OrderHistoryButton");
 
 
     $.ajax({
@@ -15,12 +16,14 @@ function IsLogin(){
                 $SignInButton.show();
                 $RegistrationButton.show();
                 $LogOffButton.hide();
+                $OrderHistoryButton.hide();
                 $('.order-button').hide();
             }
             if (result == true) {
                 $SignInButton.hide();
                 $RegistrationButton.hide();
                 $LogOffButton.show();
+                $OrderHistoryButton.show();
                 $('.order-button').show();
             }
         }
@@ -40,7 +43,11 @@ $('body').on('click', '.order-button', function () {
         url: "/Order/BuyTicket",
         type: "POST",
         data: { RouteId: IdFromAtr, date: datefromAtr },
+        beforeSend: function () {
+            $whiteoverlay.show();
+        },
         success: function (result) {
+            $whiteoverlay.hide();
             alert(result); //пока что просто алерт с результатом частичного представления
         }
         
@@ -51,6 +58,8 @@ $('body').on('click', '.order-button', function () {
 //on start
 $(document).ready(function () {
     IsLogin();
+    $whiteoverlay = $('#white-overlay');
+    $whiteoverlay.hide();
 })
 
 
@@ -67,15 +76,11 @@ $(document).ready(function () {
         $container.fadeOut(200);
     })
 
-
-
     $('#over-lay').on('click', '#SignInForm', function (event) {
        event.stopPropagation();
     })
 
-    //$('#SignInForm').click(function (event) {    
-        //event.stopPropagation();
-    //})
+    
 
 
 
