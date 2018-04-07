@@ -69,9 +69,13 @@ $(document).ready(function () {
 
 
 
-    $('#SignInForm').click(function (event) {    
-        event.stopPropagation();
+    $('#over-lay').on('click', '#SignInForm', function (event) {
+       event.stopPropagation();
     })
+
+    //$('#SignInForm').click(function (event) {    
+        //event.stopPropagation();
+    //})
 
 
 
