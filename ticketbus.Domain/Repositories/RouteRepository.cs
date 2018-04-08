@@ -9,6 +9,7 @@ using ticketbus.Domain.Interfaces;
 using System.Data.Entity;
 
 
+
 namespace ticketbus.Domain.Repositories
 {
    public class RouteRepository : IRouteRepository
@@ -70,9 +71,9 @@ namespace ticketbus.Domain.Repositories
         }
 
         //здесь какая-то жуть
-        public IEnumerable<Route> FindRoutes(string start, string final, DateTime date)  
+        public IEnumerable<Route> FindRoutes(string start, string final, DateTime DateFromForm)  
         {
-            string dateforsearch = date.DayOfWeek.ToString();
+            string dateforsearch = DateFromForm.DayOfWeek.ToString();
             List<Route> RoutesToReturn = new List<Route>();
             
             //берем из базы маршруты, которые совпадают по точке отправления и точке назначения
@@ -105,11 +106,27 @@ namespace ticketbus.Domain.Repositories
                 {
                     if (day == dateforsearch)
                         RoutesToReturn.Add(route);
-                }    
+                }           
             }
-            return RoutesToReturn;
+            return GetSeats(RoutesToReturn, DateFromForm);
         }
 
+        public IEnumerable<Route> GetSeats(List<Route> routes, DateTime date)
+        {
+            var tickets = db.BoughtTickets.Where(x => x.BuyDay == date);
+
+            foreach(var route in routes)
+            {
+                foreach(var ticket in tickets)
+                {
+                    if (ticket.RouteId == route.Id)
+                        route.Seats--;
+                    if (route.Seats <= 0)
+                        routes.Remove(route);
+                }
+            }
+            return routes;
+        }
             
         }
     }

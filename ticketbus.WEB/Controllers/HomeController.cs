@@ -27,17 +27,7 @@ namespace ticketbus.WEB.Controllers
         {
 
             return View();
-        }
-
-        [HttpPost]
-        public ActionResult LoginForm(UserViewModel usermodel)
-        {
-
-            if (ModelState.IsValid)
-                FormsAuthentication.SetAuthCookie(usermodel.Name, true);
-
-            return View();
-        }
+        }        
 
 
         [HttpPost]
