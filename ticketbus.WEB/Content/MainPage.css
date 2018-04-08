@@ -58,22 +58,24 @@
     bottom: 2px;
 }
 
-/* styles for table */
-#routes-table
+/* styles for tables */
+table
 {       
     vertical-align: middle;    
     border-collapse: separate;    
     
 }
-#routes-table td, th{    
+table td, th{    
     padding: 5px 2px;
     
 }
 
-#routes-table tr:nth-child(2n){
+table tr:nth-child(2n){
     background-color: #e3e3e3;
 }
 
+
+/*inputs*/
 input[type="date"],
 input[type="text"],
 input[type="password"]

@@ -53,5 +53,24 @@ namespace ticketbus.Logic.Services
                 BuyDay = ticket.BuyDay,
             });
         }
+
+        public IEnumerable<BoughtTicketDTO> GetUsersOrders(string username)
+        {
+            List<BoughtTicketDTO> OrdersDTO = new List<BoughtTicketDTO>();
+            var orders = UserRepository.GetUsersOrders(username);
+
+            foreach(var order in orders)
+            {
+                OrdersDTO.Add(new BoughtTicketDTO() {
+                    RouteId = order.RouteId,
+                    Buyer = order.Buyer,
+                    StartPoint = order.StartPoint,
+                    FinalPoint = order.FinalPoint,
+                    BuyDay = order.BuyDay,
+
+                });
+            }
+            return OrdersDTO;
+        }
     }
 }

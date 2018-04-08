@@ -8,6 +8,18 @@ border: 2px solid black;
 border-radius: 10px;
 }
 
+
+.user-orders-partial{
+    display:block;
+    margin: auto;
+    background-color: rgb(255,255,255);
+    border: 2px solid black;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+
+
 #Name,
 #Password
 {
@@ -23,14 +35,15 @@ border-radius: 10px;
 
 
 
-#over-lay{
+.grey-overlay{
     display: flex;    
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0, 0.7);
     position: fixed;
     left: 0px;
-    top: 0px;           
+    top: 0px;
+    z-index: 1;           /*Z INDEX FOR OVERLAY*/
 }
 
 #white-overlay{

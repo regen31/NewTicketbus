@@ -55,15 +55,40 @@ $('body').on('click', '.order-button', function () {
 })
 
 
+
+//History PartialView
+$('#OrderHistoryButton').click(function (event) {
+    $.ajax({
+        url: "/Order/GetUsersOrders",
+        type: "GET",
+        datatype: 'html',
+        beforeSend: function () {
+            $whiteoverlay.show();
+        },
+        success: function (result) {            
+            $('body').append("<div class='grey-overlay' id='HistoryContainer'></div>");
+            $('#HistoryContainer').append(result);
+            $whiteoverlay.hide();
+        }
+    })
+})
+$('body').on('click', '#HistoryContainer', function (event) {
+    $('#HistoryContainer').remove();
+})
+$('body').on('click', '.user-orders-partial', function (event) {
+   event.stopPropagation();
+})
+
+
 //on start
 $(document).ready(function () {
     IsLogin();
     $whiteoverlay = $('#white-overlay');
-    $whiteoverlay.hide();
+    $whiteoverlay.hide();    
 })
 
 
-//overlay
+//overlay for login form
     var $container = $('#over-lay');
     $container.hide();
 

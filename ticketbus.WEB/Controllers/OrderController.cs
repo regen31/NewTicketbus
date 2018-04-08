@@ -43,5 +43,25 @@ namespace ticketbus.WEB.Controllers
             
             return PartialView();
         }
+
+
+        [HttpGet]
+        public ActionResult GetUsersOrders() {
+            List<BoughtTicketViewModel> TicketsList = new List<BoughtTicketViewModel>();
+            var orders = UserService.GetUsersOrders(User.Identity.Name);
+
+            foreach (var order in orders)
+            {
+                TicketsList.Add(new BoughtTicketViewModel() {
+                    RouteId = order.RouteId,
+                    Buyer = order.Buyer,
+
+                    StartPoint = order.StartPoint,
+                    FinalPoint = order.FinalPoint,
+                    BuyDay = order.BuyDay,
+                });
+            }
+            return PartialView(TicketsList);
+        }
     }
 }

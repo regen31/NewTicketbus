@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ticketbus.WEB.Models.BoughtTicketViewModel>
+
+
+<div class="user-orders-partial">
+    <table class="table">
+        <tr>
+            <th>Номер маршрута</th>
+            <th>Дата покупки</th>
+            <th>Станция отправления</th>
+            <th>Станция прибытия</th>
+            <th>Имя покупателя</th>
+        </tr>
+        @foreach(var order in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelitem => order.RouteId)</td>
+                <td>@Html.DisplayFor(modelitem => order.BuyDay)</td>
+                <td>@Html.DisplayFor(modelitem => order.StartPoint)</td>
+                <td>@Html.DisplayFor(modelitem => order.FinalPoint)</td>
+                <td>@Html.DisplayFor(modelitem => order.Buyer)</td>
+            </tr>
+        }
+    </table>   
+</div>

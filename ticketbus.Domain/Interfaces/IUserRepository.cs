@@ -11,5 +11,6 @@ namespace ticketbus.Domain.Interfaces
     {
         User FindUser(string name);
         void AddTicket (BoughtTicket ticket);
+        IEnumerable<BoughtTicket> GetUsersOrders(string username);
     }
 }

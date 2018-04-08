@@ -31,5 +31,10 @@ namespace ticketbus.Domain.Repositories
             db.BoughtTickets.Add(ticket);
             db.SaveChanges();
         }
+
+        public IEnumerable<BoughtTicket> GetUsersOrders(string username)
+        {
+            return db.BoughtTickets.Where(x => x.Buyer == username).OrderByDescending(x => x.BuyDay);
+        }
     }
 }

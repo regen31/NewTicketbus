@@ -18,7 +18,7 @@
        <div class="header-buttons">
            <input class="button-in-header" id="SignInButton" type="button" value="Вход" />
            <input class="button-in-header" id ="RegistrationButton" type="button" value="Регистрация" />
-           <input class="button-in-header" id="OrderHistoryButton" type="button" value="История заказов" />
+           <input class="button-in-header" id="OrderHistoryButton" type="button" value="История заказов" onclick="" />
            <input class="button-in-header" id="LogOffButton" type="button" value="Выход" onclick="location.href='@Url.Action("LogOff","Account")'" />
        </div>
    </div>        
@@ -29,10 +29,9 @@
     
         
    
-    <div id="over-lay">@{Html.RenderPartial("../Account/LoginForm");}</div>
-       
-        
-       <div id="white-overlay"><img id="overlay-image" src="~/Content/4.gif" /></div> 
+    <div class ="grey-overlay" id="over-lay">@{Html.RenderPartial("../Account/LoginForm");}</div>        
+       <div id="white-overlay"><img id="overlay-image" src="~/Content/4.gif" /></div>
     
+   
 </body>
 </html>
