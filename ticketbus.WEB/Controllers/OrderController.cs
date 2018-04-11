@@ -15,11 +15,13 @@ namespace ticketbus.WEB.Controllers
 
         IUserService UserService;
         IRouteService RouteService;
+        IOrderService OrderService;
 
-        public OrderController(IUserService userrepo, IRouteService routerepo)
+        public OrderController(IUserService userrepo, IRouteService routerepo, IOrderService orderrepo)
         {
             UserService = userrepo;
             RouteService = routerepo;
+            OrderService = orderrepo;
         }
 
 
@@ -39,8 +41,8 @@ namespace ticketbus.WEB.Controllers
                 BuyDay = date,
             };
 
-            UserService.AddBoughtTicket(ticket);
-            
+            OrderService.AddBoughtTicket(ticket);
+
             return PartialView();
         }
 

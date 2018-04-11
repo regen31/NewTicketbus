@@ -22,6 +22,7 @@ namespace ticketbus.Logic.Infrastructure
             Bind<IRouteRepository>().To<RouteRepository>().WithConstructorArgument(connectionString);
             Bind<INewsRepository>().To<NewsRepository>().WithConstructorArgument(connectionString);
             Bind<IUserRepository>().To<UserRepository>().WithConstructorArgument(connectionString);
+            Bind<IOrderRepository>().To<OrderRepository>().WithConstructorArgument(connectionString);
         }
     }
 }

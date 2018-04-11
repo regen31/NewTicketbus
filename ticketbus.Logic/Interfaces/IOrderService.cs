@@ -7,10 +7,9 @@ using ticketbus.Logic.DTO;
 
 namespace ticketbus.Logic.Interfaces
 {
-    public interface IUserService
+    public interface IOrderService
     {
-        UserDTO FindUser(string name);
-        
-        IEnumerable<BoughtTicketDTO> GetUsersOrders(string username);
+        IEnumerable<BoughtTicketDTO> GetOrdersForRoute(int RouteId, DateTime date);
+        void AddBoughtTicket(BoughtTicketDTO ticket);
     }
 }

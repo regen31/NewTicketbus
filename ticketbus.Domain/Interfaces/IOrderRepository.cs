@@ -7,9 +7,9 @@ using ticketbus.Domain.Entities;
 
 namespace ticketbus.Domain.Interfaces
 {
-    public interface IUserRepository
+   public interface IOrderRepository
     {
-        User FindUser(string name);        
-        IEnumerable<BoughtTicket> GetUsersOrders(string username);
+        IEnumerable<BoughtTicket> GetOrdersForRoute(int RouteId, DateTime date);
+        void AddTicket(BoughtTicket ticket);
     }
 }

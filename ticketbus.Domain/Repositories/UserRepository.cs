@@ -26,11 +26,7 @@ namespace ticketbus.Domain.Repositories
             return user;
         }
 
-        public void AddTicket(BoughtTicket ticket)
-        {
-            db.BoughtTickets.Add(ticket);
-            db.SaveChanges();
-        }
+        
 
         public IEnumerable<BoughtTicket> GetUsersOrders(string username)
         {
