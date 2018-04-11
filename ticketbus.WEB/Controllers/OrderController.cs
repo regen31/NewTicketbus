@@ -29,20 +29,8 @@ namespace ticketbus.WEB.Controllers
 
 
         [HttpPost]
-        public ActionResult BuyTicket(int RouteId, DateTime date)
+        public ActionResult GetScheme(int RouteId, DateTime date)
         {
-            var route = RouteService.GetRoute(RouteId);
-                                    
-            BoughtTicketDTO ticket = new BoughtTicketDTO {
-                RouteId = route.Id,
-                Buyer = User.Identity.Name,
-                StartPoint = route.StartPoint,
-                FinalPoint = route.FinalPoint,
-                BuyDay = date,
-            };
-
-            OrderService.AddBoughtTicket(ticket);
-
             return PartialView();
         }
 

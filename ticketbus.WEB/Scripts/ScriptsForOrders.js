@@ -6,15 +6,18 @@ $('body').on('click', '.order-button', function () {
     var datefromAtr = $(this).attr('searchDate');
 
     $.ajax({
-        url: "/Order/BuyTicket",
+        url: "/Order/GetScheme",
         type: "POST",
         data: { RouteId: IdFromAtr, date: datefromAtr },
+        datatype: 'html',
         beforeSend: function () {
             $whiteoverlay.show();
         },
         success: function (result) {
             $whiteoverlay.hide();
-            alert(result); //пока что просто алерт с результатом частичного представления
+            alert(result);
+            $('body').append("<div class='grey-overlay' id='SchemeContainer'></div>");
+            $('#SchemeContainer').append(result);
         }
 
     })
