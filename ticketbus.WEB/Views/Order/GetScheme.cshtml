@@ -1,50 +1,59 @@
 ﻿<link href="~/Content/StylesForBusScheme.css" rel="stylesheet" />
 
-<div class="bus-container">
+<div id="scheme-window">
+    <div class="bus-container">
 
-    <div class="seat-block first">1</div>
-    <div class="seat-block">5</div>
-    <div class="seat-block">9</div>
-    <div class="seat-block">13</div>
-    <div class="seat-block">17</div>
-    <div class="seat-block">21</div>
-    <div class="seat-block">25</div>
-    <div class="seat-block">29</div>
-    <div class="seat-block">33</div>
-    <div class="seat-block">37</div>
+        <div class="seat-block first available" id="1">1</div>
+        <div class="seat-block available" id="5">5</div>
+        <div class="seat-block available" id="9">9</div>
+        <div class="seat-block available" id="13">13</div>
+        <div class="seat-block available" id="17">17</div>
+        <div class="seat-block available" id="21">21</div>
+        <div class="seat-block available" id="25">25</div>
+        <div class="seat-block available" id="29">29</div>
+        <div class="seat-block available" id="33">33</div>
+        <div class="seat-block available" id="37">37</div>
 
-    <div class="seat-block first">2</div>
-    <div class="seat-block">6</div>
-    <div class="seat-block">10</div>
-    <div class="seat-block">14</div>
-    <div class="seat-block">18</div>
-    <div class="seat-block">22</div>
-    <div class="seat-block">26</div>
-    <div class="seat-block">30</div>
-    <div class="seat-block">34</div>
-    <div class="seat-block">38</div>
+        <div class="seat-block first available" id="2">2</div>
+        <div class="seat-block available" id="6">6</div>
+        <div class="seat-block available" id="10">10</div>
+        <div class="seat-block available" id="14">14</div>
+        <div class="seat-block available" id="18">18</div>
+        <div class="seat-block available" id="22">22</div>
+        <div class="seat-block available" id="26">26</div>
+        <div class="seat-block available" id="30">30</div>
+        <div class="seat-block available" id="34">34</div>
+        <div class="seat-block available" id="38">38</div>
 
-    <div class="space"></div>
+        <div class="space"></div>
 
-    <div class="seat-block first">3</div>
-    <div class="seat-block">7</div>
-    <div class="seat-block">11</div>
-    <div class="seat-block">15</div>
-    <div class="seat-block">19</div>
-    <div class="seat-block">23</div>
-    <div class="seat-block">27</div>
-    <div class="seat-block">31</div>
-    <div class="seat-block">35</div>
-    <div class="seat-block">39</div>
+        <div class="seat-block first available" id="3">3</div>
+        <div class="seat-block available" id="7">7</div>
+        <div class="seat-block available" id="11">11</div>
+        <div class="seat-block available" id="15">15</div>
+        <div class="seat-block available" id="19">19</div>
+        <div class="seat-block available" id="23">23</div>
+        <div class="seat-block available" id="27">27</div>
+        <div class="seat-block available" id="31">31</div>
+        <div class="seat-block available" id="35">35</div>
+        <div class="seat-block available" id="39">39</div>
 
-    <div class="seat-block first">4</div>
-    <div class="seat-block">8</div>
-    <div class="seat-block">12</div>
-    <div class="seat-block">16</div>
-    <div class="seat-block">20</div>
-    <div class="seat-block">24</div>
-    <div class="seat-block">28</div>
-    <div class="seat-block">32</div>
-    <div class="seat-block">36</div>
-    <div class="seat-block">40</div>
+        <div class="seat-block first available" id="4">4</div>
+        <div class="seat-block available" id="8">8</div>
+        <div class="seat-block available" id="12">12</div>
+        <div class="seat-block available" id="16">16</div>
+        <div class="seat-block available" id="20">20</div>
+        <div class="seat-block available" id="24">24</div>
+        <div class="seat-block available" id="28">28</div>
+        <div class="seat-block available" id="32">32</div>
+        <div class="seat-block available" id="36">36</div>
+        <div class="seat-block available" id="40">40</div>
+    </div>
+    <div class="help-container">
+        <div class="block-container"><div class="help-block availablehelp"></div><span>- Место свободно</span></div>
+        <div class="block-container"><div class="help-block unavailablehelp"></div><span>- Место занято</span></div>
+        <div class="block-container"><div class="help-block chosenhelp"></div><span>- Выбранные Вами</span></div>
+    </div>
+    <button id="ContinueFromScheme" type="button">Продолжить</button>
+    <button id="CancelChanges" type="button">Отменить выбор</button>
 </div>

@@ -1,11 +1,26 @@
-﻿.bus-container{
-         display: block;  /*ВИДИМОСТЬ ОТКЛЮЧЕНА*/
+﻿ span{
+         font-weight: lighter;
+     }  
+
+     #scheme-window{
+         display: block;
+         position: relative;
+         margin: auto;         
+         width: 600px;
+         min-height: 320px;
+         background-color: white;
+         border: 4px double black;
+         
+     }
+     .bus-container{
+         display: block;  
          border: 2px solid black;
          border-radius: 5px;
          background-color: white;
          width: 560px;
          height: 230px;
          margin: auto;
+         margin-top: 10px;
          text-align: center;
          vertical-align: top;
      }
@@ -18,8 +33,7 @@
      .seat-block{ 
          display: inline-block;
          width: 40px;
-         height: 40px;
-         background: rgb(39, 174, 96);         
+         height: 40px;                 
          margin-left: 2px;
          margin-top: 2px;
      }
@@ -29,11 +43,60 @@
          display: inline-block;
          vertical-align: middle;
      }
-     .seat-block:hover{
-         cursor: pointer;
-         background-color: rgba(39, 174, 96, 0.8);
-     }
      
+          
      .first{
          margin-left: 80px;
+     }
+     
+     .help-container{
+         display: flex;
+         justify-content: center;         
+         width: 100%;         
+         margin-top: 10px;
+     } 
+     
+     .block-container{
+         margin-left: 20px;
+     }
+    
+     .help-block{
+         display: inline-block;         
+         width: 20px;
+         height: 20px;         
+         position: relative;
+         top: 4px;
+     }
+     
+     .available{
+         background-color: rgb(39, 174, 96);
+     }     
+     .unavailable{
+         background-color: rgb(181,55,55);
+     }
+     .chosen{
+         background-color: rgb(215,209,41);
+     }
+     .bus-container .available:hover{
+         cursor: pointer;
+         background-color: rgba(39, 174, 96, 0.7);
+     }
+     #ContinueFromScheme{
+         position: absolute;
+         right: 10px;
+         bottom: 10px;
+     }
+     #CancelChanges{
+         position: absolute;
+         left: 10px;
+         bottom: 10px;
+     }
+     .chosenhelp{
+          background-color: rgb(215,209,41);
+     }
+     .availablehelp{
+          background-color: rgb(39, 174, 96);
+     }
+     .unavailablehelp{
+          background-color: rgb(181,55,55);
      }

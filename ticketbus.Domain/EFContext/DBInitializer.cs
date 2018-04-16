@@ -14,16 +14,16 @@ namespace ticketbus.Domain.EFContext
         protected override void Seed(BusContext context)
         {
             List<Route> routes = new List<Route> {
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "16.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "МИНСК", FinalPoint = "БРЕСТ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "БЕЛОВЕЖСКАЯ ПУЩА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БЕЛОВЕЖСКИЙ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЕЛЬЯМОВИЧИ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЫСОКОЕ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "ВЫСОКОЕ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ДОМАЧЕВО", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
-                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ЖАБИНКА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=50, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "16.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "МИНСК", FinalPoint = "БРЕСТ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "БЕЛОВЕЖСКАЯ ПУЩА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БЕЛОВЕЖСКИЙ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЕЛЬЯМОВИЧИ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ВЫСОКОЕ", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "ВЫСОКОЕ", FinalPoint = "МИНСК", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ДОМАЧЕВО", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
+                new Route() { StartPoint = "БРЕСТ", FinalPoint = "ЖАБИНКА", DepartureTime = "13.00", ArrivalTime = "15.00", Seats=40, Monday = true, Tuesday = false, Wednesday = true, Thusday = true, Friday = false, Saturday = true, Sunday = true },
         };
             List<NewsItem> news = new List<NewsItem> {
                 new NewsItem() { Date = DateTime.Now.Date, Text = "Какая замечательная новость" },
@@ -36,8 +36,14 @@ namespace ticketbus.Domain.EFContext
             context.Roles.Add(r1);
             context.SaveChanges();
             User user1 = new User() { Login = "admin", Password = "1234", UserRole=r1};
-            
 
+            List<BoughtTicket> tickets = new List<BoughtTicket> {
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 20, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 25, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 35, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
+            };
+
+            context.BoughtTickets.AddRange(tickets);
             context.Routes.AddRange(routes);
             context.NewsItems.AddRange(news);
             context.Users.Add(user1);

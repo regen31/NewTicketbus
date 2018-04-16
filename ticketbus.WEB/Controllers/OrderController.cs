@@ -8,6 +8,7 @@ using ticketbus.Logic.DTO;
 using ticketbus.WEB.Models;
 using System.Web.Security;
 
+
 namespace ticketbus.WEB.Controllers
 {
     public class OrderController : Controller
@@ -28,8 +29,8 @@ namespace ticketbus.WEB.Controllers
 
 
 
-        [HttpPost]
-        public ActionResult GetScheme(int RouteId, DateTime date)
+        [HttpGet]
+        public ActionResult GetScheme()
         {
             return PartialView();
         }
@@ -45,6 +46,7 @@ namespace ticketbus.WEB.Controllers
                 TicketsList.Add(new BoughtTicketViewModel() {
                     RouteId = order.RouteId,
                     Buyer = order.Buyer,
+                    SeatId = order.SeatId,
 
                     StartPoint = order.StartPoint,
                     FinalPoint = order.FinalPoint,
@@ -52,6 +54,20 @@ namespace ticketbus.WEB.Controllers
                 });
             }
             return PartialView(TicketsList);
+        }
+
+        [HttpPost]
+        public JsonResult GetBoughtTicketsSeatsId(int RouteId, DateTime date)
+        {
+            List<string> IdList = new List<string>();
+            var BoughtTickets = OrderService.GetOrdersForRoute(RouteId, date);
+
+            foreach (var ticket in BoughtTickets)
+            {
+                IdList.Add(ticket.SeatId.ToString());
+            }
+            
+            return Json(IdList, JsonRequestBehavior.AllowGet);
         }
     }
 }

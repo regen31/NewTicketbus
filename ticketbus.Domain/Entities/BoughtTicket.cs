@@ -11,6 +11,7 @@ namespace ticketbus.Domain.Entities
         public int Id { get; set; }
         public int RouteId { get; set; }
         public string Buyer { get; set; }
+        public int SeatId { get; set; }
 
         public string StartPoint { get; set; }
         public string FinalPoint { get; set; }

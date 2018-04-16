@@ -30,6 +30,7 @@ namespace ticketbus.Logic.Services
                 TicketDTOList.Add(new BoughtTicketDTO() {
                     RouteId = order.RouteId,
                     Buyer = order.Buyer,
+                    SeatId = order.SeatId,
                     StartPoint = order.StartPoint,
                     FinalPoint = order.FinalPoint,
                     BuyDay = order.BuyDay,
@@ -47,6 +48,7 @@ namespace ticketbus.Logic.Services
 
                 RouteId = ticket.RouteId,
                 Buyer = ticket.Buyer,
+                SeatId = ticket.SeatId,
                 StartPoint = ticket.StartPoint,
                 FinalPoint = ticket.FinalPoint,
                 BuyDay = ticket.BuyDay,
