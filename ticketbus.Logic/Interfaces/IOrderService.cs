@@ -10,6 +10,6 @@ namespace ticketbus.Logic.Interfaces
     public interface IOrderService
     {
         IEnumerable<BoughtTicketDTO> GetOrdersForRoute(int RouteId, DateTime date);
-        void AddBoughtTicket(BoughtTicketDTO ticket);
+        void AddTickets(IEnumerable<BoughtTicketDTO> tickets);
     }
 }

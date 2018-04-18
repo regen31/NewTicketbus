@@ -69,5 +69,30 @@ namespace ticketbus.WEB.Controllers
             
             return Json(IdList, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpPost]
+        public ActionResult ShowPaymentOptions(int RouteId, DateTime DepartDate, int[] ChosenSeats)
+        {
+            var route = RouteService.GetRoute(RouteId);
+            List<BoughtTicketDTO> tickets = new List<BoughtTicketDTO>();
+
+            for(int i = 0; i < ChosenSeats.Length; i++)
+            {
+                tickets.Add(new BoughtTicketDTO() {
+                    RouteId = route.Id,
+                    Buyer = User.Identity.Name,
+                    SeatId = ChosenSeats[i],
+                    StartPoint = route.StartPoint,
+                    FinalPoint = route.FinalPoint,
+                    BuyDay = DepartDate,
+
+                    AddTime = DateTime.Now,
+                    Status = "Chosen",
+                });
+            }
+
+            OrderService.AddTickets(tickets);
+            return PartialView();
+        }
     }
 }

@@ -192,6 +192,7 @@
     <Content Include="Content\MainPage.css" />
     <Content Include="Content\Popup.css" />
     <Content Include="Content\StylesForBusScheme.css" />
+    <Content Include="Content\PaymentOptions.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -238,6 +239,7 @@
     <Content Include="Views\Home\ShowAllRoutes.cshtml" />
     <Content Include="Views\Order\GetUsersOrders.cshtml" />
     <Content Include="Views\Order\GetScheme.cshtml" />
+    <Content Include="Views\Order\ShowPaymentOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

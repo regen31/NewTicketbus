@@ -70,15 +70,39 @@ $('body').on('click', '#CancelChanges', function (event) {
 $('body').on('click', '#ContinueFromScheme', function (event) {
 
     if (ChosenSeats.length > 0) {
-       
+        $.ajax({
+            url: "Order/ShowPaymentOptions",
+            type: "POST",
+            data: { RouteId: IdFromAtr, DepartDate: datefromAtr, ChosenSeats: ChosenSeats },
+            datatype: 'html',
+            beforeSend: function () {
+                $('#SchemeContainer').remove();
+                $whiteoverlay.show();
+            },
+            success: function (result) {
+                $whiteoverlay.hide();
+                $('body').append("<div class='grey-overlay' id='PaymentsContainer'></div>");
+                $('#PaymentsContainer').append(result);
+            }
+        });
     }    
 });
 
-//overlays
+//OVERLAYS
+//bus scheme
 $('body').on('click', '#SchemeContainer', function (event) {
     ChosenSeats = [];
     $('#SchemeContainer').remove();
 })
 $('body').on('click', '#scheme-window', function (event) {
+    event.stopPropagation();
+})
+
+//payment options
+$('body').on('click', '#PaymentsContainer', function (event) {
+    ChosenSeats = [];
+    $('#PaymentsContainer').remove();
+})
+$('body').on('click', '#payment-container', function (event) {
     event.stopPropagation();
 })

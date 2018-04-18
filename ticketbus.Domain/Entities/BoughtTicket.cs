@@ -16,5 +16,8 @@ namespace ticketbus.Domain.Entities
         public string StartPoint { get; set; }
         public string FinalPoint { get; set; }
         public DateTime BuyDay { get; set; }
+
+        public DateTime AddTime { get; set; }
+        public string Status { get; set; }
     }
 }

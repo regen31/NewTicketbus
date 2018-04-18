@@ -38,9 +38,9 @@ namespace ticketbus.Domain.EFContext
             User user1 = new User() { Login = "admin", Password = "1234", UserRole=r1};
 
             List<BoughtTicket> tickets = new List<BoughtTicket> {
-                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 20, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
-                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 25, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
-                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 35, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28) },
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 20, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28), Status = "Bought", AddTime = DateTime.Now },
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 25, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28), Status = "Bought", AddTime = DateTime.Now },
+                new BoughtTicket() {RouteId = 1, Buyer = "admin", SeatId= 35, StartPoint = "БРЕСТ", FinalPoint = "МИНСК", BuyDay = new DateTime(2018, 4, 28), Status = "Bought", AddTime = DateTime.Now },
             };
 
             context.BoughtTickets.AddRange(tickets);

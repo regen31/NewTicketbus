@@ -29,9 +29,9 @@ namespace ticketbus.Domain.Repositories
             return orders;
         }
 
-        public void AddTicket(BoughtTicket ticket)
+        public void AddTickets(IEnumerable<BoughtTicket> tickets)
         {
-            db.BoughtTickets.Add(ticket);
+            db.BoughtTickets.AddRange(tickets);
             db.SaveChanges();
         }
     }

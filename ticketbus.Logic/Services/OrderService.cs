@@ -41,18 +41,25 @@ namespace ticketbus.Logic.Services
         }
 
 
-        public void AddBoughtTicket(BoughtTicketDTO ticket)
+        public void AddTickets(IEnumerable <BoughtTicketDTO> tickets)
         {
-            OrderRepository.AddTicket(new BoughtTicket
-            {
+            List<BoughtTicket> DBtickets = new List<BoughtTicket>();
 
-                RouteId = ticket.RouteId,
-                Buyer = ticket.Buyer,
-                SeatId = ticket.SeatId,
-                StartPoint = ticket.StartPoint,
-                FinalPoint = ticket.FinalPoint,
-                BuyDay = ticket.BuyDay,
-            });
+            foreach (var ticket in tickets) {
+                DBtickets.Add(new BoughtTicket()
+                {
+                    RouteId = ticket.RouteId,
+                    Buyer = ticket.Buyer,
+                    SeatId = ticket.SeatId,
+                    StartPoint = ticket.StartPoint,
+                    FinalPoint = ticket.FinalPoint,
+                    BuyDay = ticket.BuyDay,
+
+                    AddTime = ticket.AddTime,
+                    Status = ticket.Status,
+                });               
+                }
+            OrderRepository.AddTickets(DBtickets);            
         }
     }
 }

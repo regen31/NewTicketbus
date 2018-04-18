@@ -1,0 +1,45 @@
+﻿ h2{
+        text-align: center;        
+    }
+
+.payment-container{
+        display: block;
+        width: 250px;
+        min-height: 100px;
+        background-color: white;
+        border-radius: 5px;
+        margin: auto;
+    }
+    .payment-block{
+        display: flex;        
+        border: 1px solid grey;        
+        height: 50px;
+        width: 95%;
+        margin: auto;    
+        margin-top: 3px;
+        margin-bottom: 3px;
+        align-items: center;
+        
+    }
+    .text-block{
+        display: inline-block;
+        margin-left: 20px;
+    }
+    .image-block{
+        display: inline-block;        
+        width: 28px;
+        height: 28px;        
+        margin-left: 10px;
+        background-image: url("/Content/pay-sprite.png");
+    }
+    .paymentcard{
+        background-position: -28px 1px;
+    }
+    .qiwi{
+        background-position: 0 -57px;
+    }
+    .payment-block:hover{
+        border: 2px solid #53A6F9;
+        border-radius: 5px;
+        cursor: pointer;
+    }
