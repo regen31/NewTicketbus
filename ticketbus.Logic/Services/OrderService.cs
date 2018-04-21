@@ -61,5 +61,10 @@ namespace ticketbus.Logic.Services
                 }
             OrderRepository.AddTickets(DBtickets);            
         }
+
+        public void ChangeStatusChosenToBought(int RouteId, DateTime DepartDate, int[] seats)
+        {
+            OrderRepository.ChangeStatusChosenToBought(RouteId, DepartDate, seats);
+        }
     }
 }

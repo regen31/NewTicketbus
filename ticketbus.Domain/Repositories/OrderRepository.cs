@@ -34,5 +34,26 @@ namespace ticketbus.Domain.Repositories
             db.BoughtTickets.AddRange(tickets);
             db.SaveChanges();
         }
+
+        public void ChangeStatusChosenToBought(int RouteId, DateTime DepartDate, int[] seats)
+        {
+            var tickets =
+                from order in db.BoughtTickets
+                where order.RouteId == RouteId && order.BuyDay == DepartDate
+                select order;
+
+            foreach(var ticket in tickets)
+            {
+                for (int i = 0; i < seats.Length; i++)
+                {
+                    if (ticket.SeatId == seats[i] && ticket.Status == "Chosen")
+
+                    ticket.Status = "Bought";
+                    ticket.AddTime = DateTime.Now;
+                }
+            }
+
+            db.SaveChanges();
+        }
     }
 }

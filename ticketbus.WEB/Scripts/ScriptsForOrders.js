@@ -1,6 +1,7 @@
 ﻿var IdFromAtr = null;
 var datefromAtr = null;
 var ChosenSeats = [];
+var CurrentPaymentOption = null;
 
 
 function GetUnavailableSeats(Route, dateforsearch) {
@@ -20,6 +21,10 @@ function GetUnavailableSeats(Route, dateforsearch) {
     return seats;
 };
 
+function SuccessOrder(result) {
+    $('#PaymentFormContainer').empty();
+    $('#PaymentFormContainer').append(result);
+}
 
 //order-button click
 $('body').on('click', '.order-button', function () {
@@ -33,6 +38,9 @@ $('body').on('click', '.order-button', function () {
         datatype: 'html',
         beforeSend: function () {
             $whiteoverlay.show();
+        },
+        error: function () {
+            alert('ERROR');
         },
         success: function (result) {
             $whiteoverlay.hide();
@@ -71,7 +79,7 @@ $('body').on('click', '#ContinueFromScheme', function (event) {
 
     if (ChosenSeats.length > 0) {
         $.ajax({
-            url: "Order/ShowPaymentOptions",
+            url: "/Order/ShowPaymentOptions",
             type: "POST",
             data: { RouteId: IdFromAtr, DepartDate: datefromAtr, ChosenSeats: ChosenSeats },
             datatype: 'html',
@@ -79,6 +87,7 @@ $('body').on('click', '#ContinueFromScheme', function (event) {
                 $('#SchemeContainer').remove();
                 $whiteoverlay.show();
             },
+
             success: function (result) {
                 $whiteoverlay.hide();
                 $('body').append("<div class='grey-overlay' id='PaymentsContainer'></div>");
@@ -86,6 +95,36 @@ $('body').on('click', '#ContinueFromScheme', function (event) {
             }
         });
     }    
+});
+
+//payment-block click
+$('body').on('click', '.payment-block', function (event) {
+    CurrentPaymentOption = $(this).attr('id');
+    $('.payment-block').css('border', '1px solid grey');
+    $(this).css('border', "3px solid #53A6F9");
+});
+
+//continue from payment options
+$('body').on('click', '#ContinueFromPaymentOptions', function (event) {
+    if (CurrentPaymentOption) {
+
+        $.ajax({
+            url: "/Order/ShowPaymentForm",
+            type: "POST",
+            data: { RouteId: IdFromAtr, DepartDate: datefromAtr, ChosenSeats: ChosenSeats, PaymentOption: CurrentPaymentOption, },
+            datatype: 'html',
+            beforeSend: function () {
+                $('#PaymentsContainer').remove();
+                $whiteoverlay.show();
+            },
+            success: function (result) {
+                $whiteoverlay.hide();
+                $('body').append("<div class='grey-overlay' id='PaymentFormContainer'></div>");
+                $('#PaymentFormContainer').append(result);
+            }
+        });
+    }
+
 });
 
 //OVERLAYS
@@ -101,8 +140,9 @@ $('body').on('click', '#scheme-window', function (event) {
 //payment options
 $('body').on('click', '#PaymentsContainer', function (event) {
     ChosenSeats = [];
+    CurrentPaymentOption = null;
     $('#PaymentsContainer').remove();
 })
-$('body').on('click', '#payment-container', function (event) {
+$('body').on('click', '.payment-container', function (event) {
     event.stopPropagation();
 })

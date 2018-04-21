@@ -19,6 +19,7 @@
         margin-top: 3px;
         margin-bottom: 3px;
         align-items: center;
+        cursor: pointer;
         
     }
     .text-block{
@@ -38,8 +39,9 @@
     .qiwi{
         background-position: 0 -57px;
     }
-    .payment-block:hover{
-        border: 2px solid #53A6F9;
-        border-radius: 5px;
-        cursor: pointer;
+    #ContinueFromPaymentOptions{
+        display: block;
+        margin: auto;
+        margin-top: 10px;
     }
+    

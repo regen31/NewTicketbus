@@ -11,5 +11,6 @@ namespace ticketbus.Logic.Interfaces
     {
         IEnumerable<BoughtTicketDTO> GetOrdersForRoute(int RouteId, DateTime date);
         void AddTickets(IEnumerable<BoughtTicketDTO> tickets);
+        void ChangeStatusChosenToBought(int RouteId, DateTime DepartDate, int[] seats);
     }
 }

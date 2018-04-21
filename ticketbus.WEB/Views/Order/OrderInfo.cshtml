@@ -1,0 +1,16 @@
+﻿@model ticketbus.WEB.Models.OrderInfoViewModel
+
+<div class="info-container">
+    <div class="information-block">
+        @Html.LabelFor(x => x.RouteId) @Html.DisplayFor(x => x.RouteId)
+    </div>
+    <div class="information-block">
+        @Html.LabelFor(x => x.StartPoint) @Html.DisplayFor(x => x.StartPoint)<span> - </span>@Html.DisplayFor(x => x.FinalPoint)
+    </div>
+    <div class="information-block">
+        @Html.LabelFor(x => x.DepartDate) @Html.DisplayFor(x => x.DepartDate) @Html.DisplayFor(x => x.DepartTime)
+    </div>
+    <div class="information-block">
+        @Html.LabelFor(x => x.SeatsCount) @Html.DisplayFor(x => x.SeatsCount)
+    </div>
+</div>

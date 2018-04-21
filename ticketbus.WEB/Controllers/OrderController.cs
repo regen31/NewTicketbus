@@ -94,5 +94,28 @@ namespace ticketbus.WEB.Controllers
             OrderService.AddTickets(tickets);
             return PartialView();
         }
+
+
+        [HttpPost]
+        public ActionResult ShowPaymentForm(int RouteId, DateTime DepartDate, int[] ChosenSeats, string PaymentOption)
+        {
+            var route = RouteService.GetRoute(RouteId);
+
+            OrderInfoViewModel infoObject = new OrderInfoViewModel {RouteId = route.Id, StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartDate = DepartDate, DepartTime = route.DepartureTime, SeatsCount = ChosenSeats.Length, ChosenSeats = ChosenSeats };
+
+            if (PaymentOption == "paymentcard")            
+                return PartialView("PaymentCard", new PaymentCardViewModel {OrderInfo = infoObject });
+            
+
+            return HttpNotFound();
+        }
+
+
+        [HttpPost]
+        public ActionResult PaymentCardConfirm(PaymentCardViewModel cardmodel)
+        {
+            OrderService.ChangeStatusChosenToBought(cardmodel.OrderInfo.RouteId, cardmodel.OrderInfo.DepartDate, cardmodel.OrderInfo.ChosenSeats);            
+            return PartialView("SuccessOrder");
+        }
     }
 }
