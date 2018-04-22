@@ -1,0 +1,38 @@
+﻿@model ticketbus.WEB.Models.WebMoneyViewModel
+
+<link href="~/Content/OrderConfirmWindow.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+
+<div class="payment-confirm-container">
+    <h3>Информация о заказе:</h3>
+    @Html.Partial("../Order/OrderInfo", Model.OrderInfo)
+    <h3>Данные для оплаты:</h3>
+    <div class="info-container webmoney">
+        @using (Ajax.BeginForm("WebMoneyConfirm", "Order", null, new AjaxOptions { UpdateTargetId = "PaymentFormContainer", LoadingElementId = "white-overlay", OnSuccess = "SuccessOrder" }))
+        {
+            <div class="wm-edit-block">
+            @Html.LabelFor(model =>model.Wmid)<br />
+            @Html.EditorFor(model => model.Wmid)
+                </div>
+
+            <div class="wm-edit-block">
+            @Html.LabelFor(model => model.WMPassword)<br />
+            @Html.EditorFor(model => model.WMPassword)
+                </div>
+            <input type="submit" value="Оформить заказ" />
+                
+
+
+            @Html.HiddenFor(x => x.OrderInfo.RouteId)
+            @Html.HiddenFor(x => x.OrderInfo.DepartDate)
+            for (int i = 0; i < Model.OrderInfo.ChosenSeats.Length; i++)
+            {
+                @Html.HiddenFor(x => x.OrderInfo.ChosenSeats[i], new { value = Model.OrderInfo.ChosenSeats[i] })
+            }
+
+        }
+    </div>
+</div>

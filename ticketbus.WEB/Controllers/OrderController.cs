@@ -103,8 +103,10 @@ namespace ticketbus.WEB.Controllers
 
             OrderInfoViewModel infoObject = new OrderInfoViewModel {RouteId = route.Id, StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartDate = DepartDate, DepartTime = route.DepartureTime, SeatsCount = ChosenSeats.Length, ChosenSeats = ChosenSeats };
 
-            if (PaymentOption == "paymentcard")            
-                return PartialView("PaymentCard", new PaymentCardViewModel {OrderInfo = infoObject });
+            if (PaymentOption == "paymentcard")
+                return PartialView("PaymentCard", new PaymentCardViewModel { OrderInfo = infoObject });
+            else if (PaymentOption == "webmoney")
+                return PartialView("WebMoney", new WebMoneyViewModel { OrderInfo = infoObject });
             
 
             return HttpNotFound();
@@ -115,6 +117,13 @@ namespace ticketbus.WEB.Controllers
         public ActionResult PaymentCardConfirm(PaymentCardViewModel cardmodel)
         {
             OrderService.ChangeStatusChosenToBought(cardmodel.OrderInfo.RouteId, cardmodel.OrderInfo.DepartDate, cardmodel.OrderInfo.ChosenSeats);            
+            return PartialView("SuccessOrder");
+        }
+
+        [HttpPost]
+        public ActionResult WebMoneyConfirm(WebMoneyViewModel wmmodel)
+        {
+            OrderService.ChangeStatusChosenToBought(wmmodel.OrderInfo.RouteId, wmmodel.OrderInfo.DepartDate, wmmodel.OrderInfo.ChosenSeats);
             return PartialView("SuccessOrder");
         }
     }

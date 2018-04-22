@@ -1,7 +1,8 @@
 ﻿h3{
     text-align:center;
 }
-.paymentcard-confirm-container{
+
+.payment-confirm-container{
     display:block;
     margin:auto;
     padding-bottom: 30px;
@@ -53,8 +54,18 @@
     margin-bottom: 10px;
 }
 
-.paymentcard input[type=submit]{
+.info-container input[type=submit]{
     display: block;
     margin: auto;
     width: 90%
+}
+
+.wm-edit-block{    
+    width: 95%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.wm-edit-block input[type=text], input[type=password]{    
+    width: 100%;
 }

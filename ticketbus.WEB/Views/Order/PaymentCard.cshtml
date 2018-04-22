@@ -1,12 +1,12 @@
 ﻿@model ticketbus.WEB.Models.PaymentCardViewModel
 
-<link href="~/Content/PaymentCard.css" rel="stylesheet" />
+<link href="~/Content/OrderConfirmWindow.css" rel="stylesheet" />
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
 
-<div class="paymentcard-confirm-container">
+<div class="payment-confirm-container">
     <h3>Информация о заказе:</h3>
     @Html.Partial("../Order/OrderInfo", Model.OrderInfo)
     <h3>Данные для оплаты:</h3>
