@@ -70,28 +70,9 @@ namespace ticketbus.WEB.Controllers
             return Json(IdList, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpPost]
-        public ActionResult ShowPaymentOptions(int RouteId, DateTime DepartDate, int[] ChosenSeats)
-        {
-            var route = RouteService.GetRoute(RouteId);
-            List<BoughtTicketDTO> tickets = new List<BoughtTicketDTO>();
-
-            for(int i = 0; i < ChosenSeats.Length; i++)
-            {
-                tickets.Add(new BoughtTicketDTO() {
-                    RouteId = route.Id,
-                    Buyer = User.Identity.Name,
-                    SeatId = ChosenSeats[i],
-                    StartPoint = route.StartPoint,
-                    FinalPoint = route.FinalPoint,
-                    BuyDay = DepartDate,
-
-                    AddTime = DateTime.Now,
-                    Status = "Chosen",
-                });
-            }
-
-            OrderService.AddTickets(tickets);
+        [HttpGet]
+        public ActionResult ShowPaymentOptions()
+        {            
             return PartialView();
         }
 
@@ -100,6 +81,26 @@ namespace ticketbus.WEB.Controllers
         public ActionResult ShowPaymentForm(int RouteId, DateTime DepartDate, int[] ChosenSeats, string PaymentOption)
         {
             var route = RouteService.GetRoute(RouteId);
+
+            List<BoughtTicketDTO> tickets = new List<BoughtTicketDTO>();
+            for (int i = 0; i < ChosenSeats.Length; i++)
+            {
+                tickets.Add(new BoughtTicketDTO()
+                {
+                    RouteId = route.Id,
+                    Buyer = User.Identity.Name,
+                    SeatId = ChosenSeats[i],
+                    StartPoint = route.StartPoint,     // << добавление в базу билетов со статусом Chosen
+                    FinalPoint = route.FinalPoint,
+                    BuyDay = DepartDate,
+
+                    AddTime = DateTime.Now,
+                    Status = "Chosen",
+                });
+            }
+            OrderService.AddTickets(tickets);
+
+
 
             OrderInfoViewModel infoObject = new OrderInfoViewModel {RouteId = route.Id, StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartDate = DepartDate, DepartTime = route.DepartureTime, SeatsCount = ChosenSeats.Length, ChosenSeats = ChosenSeats };
 

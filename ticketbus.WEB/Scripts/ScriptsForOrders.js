@@ -2,6 +2,7 @@
 var datefromAtr = null;
 var ChosenSeats = [];
 var CurrentPaymentOption = null;
+var $BusScheme = null;
 
 
 function GetUnavailableSeats(Route, dateforsearch) {
@@ -39,9 +40,7 @@ $('body').on('click', '.order-button', function () {
         beforeSend: function () {
             $whiteoverlay.show();
         },
-        error: function () {
-            alert('ERROR');
-        },
+       
         success: function (result) {
             $whiteoverlay.hide();
             $('body').append("<div class='grey-overlay' id='SchemeContainer'></div>");
@@ -51,7 +50,8 @@ $('body').on('click', '.order-button', function () {
                 var element = document.getElementById(item);
                 element.classList.remove('available');
                 element.classList.add("unavailable");               
-            });            
+            });
+            $BusScheme = $('#SchemeContainer');
         }
     })
 })
@@ -80,8 +80,7 @@ $('body').on('click', '#ContinueFromScheme', function (event) {
     if (ChosenSeats.length > 0) {
         $.ajax({
             url: "/Order/ShowPaymentOptions",
-            type: "POST",
-            data: { RouteId: IdFromAtr, DepartDate: datefromAtr, ChosenSeats: ChosenSeats },
+            type: "GET",            
             datatype: 'html',
             beforeSend: function () {
                 $('#SchemeContainer').remove();
@@ -125,6 +124,14 @@ $('body').on('click', '#ContinueFromPaymentOptions', function (event) {
         });
     }
 
+});
+
+//return from payment options
+$('body').on('click', '#ReturnToScheme', function (event) {
+    $whiteoverlay.show();
+    $('#PaymentsContainer').remove();
+    $whiteoverlay.hide();
+    $('body').append($BusScheme);
 });
 
 //OVERLAYS

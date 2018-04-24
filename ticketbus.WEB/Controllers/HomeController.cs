@@ -72,5 +72,14 @@ namespace ticketbus.WEB.Controllers
             }
             return PartialView(AllRoutes);
         }
+
+        [ChildActionOnly]
+        public ActionResult GreetingBlock()
+        {
+            if (User.Identity.IsAuthenticated)
+                return PartialView("GreetingBlock", User.Identity.Name);
+            else
+                return PartialView("GreetingBlock","unknown");
+        }
     }
 }

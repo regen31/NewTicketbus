@@ -21,7 +21,17 @@
     line-height:60px;
 }
 
-
+.header .greeting-block{
+    display: inline-block;
+    background-color: #737371;
+    margin: 5px auto 5px 5%;    
+}
+.greeting-block span{
+    line-height: 50px;
+    margin: auto 5px auto 5px;
+    font-size: 1.15em;
+    
+}
 .header-buttons{
 
     margin:auto;

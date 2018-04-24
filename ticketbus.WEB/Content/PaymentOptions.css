@@ -9,6 +9,7 @@
         background-color: white;
         border-radius: 5px;
         margin: auto;
+        text-align: center;
     }
     .payment-block{
         display: flex;        
@@ -39,9 +40,11 @@
     .qiwi{
         background-position: 0 -57px;
     }
-    #ContinueFromPaymentOptions{
-        display: block;
-        margin: auto;
-        margin-top: 10px;
-    }
+
+    #ContinueFromPaymentOptions,#ReturnToScheme{
+        display: inline-block;
+        width: 100px;
+        margin: 5px;
+        margin-top: 30px;       
+    }    
     
