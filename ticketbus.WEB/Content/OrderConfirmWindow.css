@@ -60,12 +60,16 @@
     width: 90%
 }
 
-.wm-edit-block{    
+.wm-edit-block, .qiwi-edit-block{    
     width: 95%;
     margin: auto;
     margin-bottom: 20px;
 }
 
-.wm-edit-block input[type=text], input[type=password]{    
+.wm-edit-block  input[type=text], input[type=password]{    
+    width: 100%;
+}
+
+.qiwi-edit-block input[type=text]{
     width: 100%;
 }

@@ -127,5 +127,12 @@ namespace ticketbus.WEB.Controllers
             OrderService.ChangeStatusChosenToBought(wmmodel.OrderInfo.RouteId, wmmodel.OrderInfo.DepartDate, wmmodel.OrderInfo.ChosenSeats);
             return PartialView("SuccessOrder");
         }
+
+        [HttpPost]
+        public ActionResult QiwiConfirm(QIWIViewModel model)
+        {
+            OrderService.ChangeStatusChosenToBought(model.OrderInfo.RouteId, model.OrderInfo.DepartDate, model.OrderInfo.ChosenSeats);
+            return PartialView("SuccessOrder");
+        }
     }
 }

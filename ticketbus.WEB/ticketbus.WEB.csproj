@@ -183,6 +183,7 @@
     <Compile Include="Models\NewsViewModel.cs" />
     <Compile Include="Models\OrderInfoViewModel.cs" />
     <Compile Include="Models\PaymentCardViewModel.cs" />
+    <Compile Include="Models\QIWIViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\WebMoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,6 +251,7 @@
     <Content Include="Views\Order\SuccessOrder.cshtml" />
     <Content Include="Views\Order\WebMoney.cshtml" />
     <Content Include="Views\Home\GreetingBlock.cshtml" />
+    <Content Include="Views\Order\qiwi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
