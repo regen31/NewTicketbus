@@ -18,7 +18,11 @@ border-radius: 10px;
     z-index: 2;
 }
 
-
+.noorders-text{
+    display: inline-block;
+    font-style: italic;    
+    margin: 5px;   
+}
 
 #Name,
 #Password

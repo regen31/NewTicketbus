@@ -30,7 +30,10 @@ namespace ticketbus.Domain.Repositories
 
         public IEnumerable<BoughtTicket> GetUsersOrders(string username)
         {
-            return db.BoughtTickets.Where(x => x.Buyer == username).OrderByDescending(x => x.BuyDay);
+            return
+                from t in db.BoughtTickets
+                where t.Buyer == username && t.Status == "Bought"
+                select t;
         }
     }
 }

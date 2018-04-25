@@ -39,21 +39,27 @@ namespace ticketbus.WEB.Controllers
         [HttpGet]
         public ActionResult GetUsersOrders() {
             List<BoughtTicketViewModel> TicketsList = new List<BoughtTicketViewModel>();
-            var orders = UserService.GetUsersOrders(User.Identity.Name);
+            var orders = UserService.GetUsersOrders(User.Identity.Name).ToList();
 
-            foreach (var order in orders)
+            if (orders.Count > 0)
             {
-                TicketsList.Add(new BoughtTicketViewModel() {
-                    RouteId = order.RouteId,
-                    Buyer = order.Buyer,
-                    SeatId = order.SeatId,
+                foreach (var order in orders)
+                {
+                    TicketsList.Add(new BoughtTicketViewModel()
+                    {
+                        RouteId = order.RouteId,
+                        Buyer = order.Buyer,
+                        SeatId = order.SeatId,
 
-                    StartPoint = order.StartPoint,
-                    FinalPoint = order.FinalPoint,
-                    BuyDay = order.BuyDay,
-                });
+                        StartPoint = order.StartPoint,
+                        FinalPoint = order.FinalPoint,
+                        BuyDay = order.BuyDay,
+                    });
+                }
+                return PartialView(TicketsList);
             }
-            return PartialView(TicketsList);
+            else
+                return PartialView("NoOrders");
         }
 
         [HttpPost]

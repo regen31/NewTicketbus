@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ticketbus.WEB.Models.BoughtTicketViewModel>
+﻿@model List<ticketbus.WEB.Models.BoughtTicketViewModel>
 
 
 <div class="user-orders-partial">
@@ -20,5 +20,8 @@
                 <td>@Html.DisplayFor(modelitem => order.Buyer)</td>
             </tr>
         }
-    </table>   
+    </table>
+    @if(Model.Count == 0) {
+        <span class="noorders-text">К сожалению, пока здесь ничего нет. Начните делать заказы.</span>
+    }
 </div>
