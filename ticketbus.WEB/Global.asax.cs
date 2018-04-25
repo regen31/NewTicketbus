@@ -9,6 +9,7 @@ using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
 using ticketbus.Logic.Infrastructure;
+using ticketbus.Logic.Jobs;
 using ticketbus.WEB.Infrastructure;
 
 namespace ticketbus.WEB
@@ -28,6 +29,8 @@ namespace ticketbus.WEB
             var kernel = new StandardKernel(DIModule, ServiceModule);
             kernel.Unbind<ModelValidatorProvider>();
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+
+            CleanerScheduler.Start(); //запуск действия по расписанию
         }
     }
 }

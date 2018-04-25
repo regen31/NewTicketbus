@@ -55,5 +55,19 @@ namespace ticketbus.Domain.Repositories
 
             db.SaveChanges();
         }
+
+        public Task <List<BoughtTicket>> GetChosenTickets()
+        {            
+            return Task.Run(() => db.BoughtTickets.Where(x => x.Status == "Chosen").ToList());            
+        }
+
+        public  void RemoveChosenTickets(ICollection<BoughtTicket> tickets)
+        {
+            if (tickets.Count > 0)
+            {
+                db.BoughtTickets.RemoveRange(tickets);
+                db.SaveChanges();
+            }
+        }
     }
 }
