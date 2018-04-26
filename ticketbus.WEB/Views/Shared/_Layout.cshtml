@@ -11,9 +11,10 @@
     <script src="~/Scripts/ShowLoginForm.js" type="text/javascript" defer></script>
     <script src="~/Scripts/ScriptsForOrders.js" type="text/javascript" defer></script>
     <link href="~/Content/MainPage.css" rel="stylesheet" />
-    <link href="~/Content/Popup.css" rel="stylesheet" />   
+    <link href="~/Content/Popup.css" rel="stylesheet" />       
     </head>
-<body>
+
+<body>    
        <div class="header">
        <span>Система продажи билетов на автобусы</span>
            @Html.Action("GreetingBlock")
@@ -23,13 +24,13 @@
            <input class="button-in-header" id="OrderHistoryButton" type="button" value="История заказов" onclick="" />
            <input class="button-in-header" id="LogOffButton" type="button" value="Выход" onclick="location.href='@Url.Action("LogOff","Account")'" />
        </div>
-   </div>        
-    @RenderBody()
+   </div>
 
-
-
-    
-    
+    <div class="content-block">
+        @RenderBody()
+    </div>
+       
+     
    
     <div class ="grey-overlay" id="over-lay">@{Html.RenderPartial("../Account/LoginForm");}</div>        
        <div id="white-overlay"><img id="overlay-image" src="~/Content/4.gif" /></div>

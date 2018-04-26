@@ -17,7 +17,7 @@ function IsLogin(){
                 $RegistrationButton.show();
                 $LogOffButton.hide();
                 $OrderHistoryButton.hide();
-                $('.order-button').hide();
+                LoginBool = false;
                 $('.greeting-block').hide();
             }
             if (result == true) {
@@ -25,7 +25,7 @@ function IsLogin(){
                 $RegistrationButton.hide();
                 $LogOffButton.show();
                 $OrderHistoryButton.show();
-                $('.order-button').show();
+                LoginBool = true;
                 $('.greeting-block').show();
             }
         }

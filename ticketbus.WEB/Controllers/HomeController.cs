@@ -64,12 +64,12 @@ namespace ticketbus.WEB.Controllers
         {
             List<RouteViewModel> AllRoutes = new List<RouteViewModel>();
 
-            var allformDB = RouteRepository.GetAllRoutes();
+           // var allfromDB = RouteRepository.GetAllRoutes();
 
-            foreach (var route in allformDB)
-            {
-                AllRoutes.Add(new RouteViewModel() {StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartureTime = route.DepartureTime, ArrivalTime = route.ArrivalTime, Seats = route.Seats });
-            }
+           // foreach (var route in allfromDB)
+           // {
+           //     AllRoutes.Add(new RouteViewModel() {StartPoint = route.StartPoint, FinalPoint = route.FinalPoint, DepartureTime = route.DepartureTime, ArrivalTime = route.ArrivalTime, Seats = route.Seats });
+           // }
             return PartialView(AllRoutes);
         }
 

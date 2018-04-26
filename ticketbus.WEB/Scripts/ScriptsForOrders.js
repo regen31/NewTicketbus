@@ -3,6 +3,7 @@ var datefromAtr = null;
 var ChosenSeats = [];
 var CurrentPaymentOption = null;
 var $BusScheme = null;
+var LoginBool = null;
 
 
 function GetUnavailableSeats(Route, dateforsearch) {
@@ -29,31 +30,36 @@ function SuccessOrder(result) {
 
 //order-button click
 $('body').on('click', '.order-button', function () {
-    IdFromAtr = $(this).attr('routeId');
-    datefromAtr = $(this).attr('searchDate');
-    var seatsList = GetUnavailableSeats(IdFromAtr, datefromAtr);
 
-    $.ajax({
-        url: "/Order/GetScheme",
-        type: "GET",        
-        datatype: 'html',
-        beforeSend: function () {
-            $whiteoverlay.show();
-        },
-       
-        success: function (result) {
-            $whiteoverlay.hide();
-            $('body').append("<div class='grey-overlay' id='SchemeContainer'></div>");
-            $('#SchemeContainer').append(result);           
-            
-            seatsList.forEach(function (item, i, seatsList) {                
-                var element = document.getElementById(item);
-                element.classList.remove('available');
-                element.classList.add("unavailable");               
-            });
-            $BusScheme = $('#SchemeContainer');
-        }
-    })
+    if (LoginBool) {
+        IdFromAtr = $(this).attr('routeId');
+        datefromAtr = $(this).attr('searchDate');
+        var seatsList = GetUnavailableSeats(IdFromAtr, datefromAtr);
+
+        $.ajax({
+            url: "/Order/GetScheme",
+            type: "GET",
+            datatype: 'html',
+            beforeSend: function () {
+                $whiteoverlay.show();
+            },
+
+            success: function (result) {
+                $whiteoverlay.hide();
+                $('body').append("<div class='grey-overlay' id='SchemeContainer'></div>");
+                $('#SchemeContainer').append(result);
+
+                seatsList.forEach(function (item, i, seatsList) {
+                    var element = document.getElementById(item);
+                    element.classList.remove('available');
+                    element.classList.add("unavailable");
+                });
+                $BusScheme = $('#SchemeContainer');
+            }
+        })
+    } else {
+        $('#not-login-message').css('display', 'inline-block');
+    }
 })
 
 
