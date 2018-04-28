@@ -3,7 +3,7 @@
 
     <div class="loginform" id="SignInForm">
         
-    @using (Ajax.BeginForm("LoginForm", "Account", null, new AjaxOptions {UpdateTargetId ="over-lay"}))
+    @using (Ajax.BeginForm("LoginForm", "Account", null, new AjaxOptions {UpdateTargetId ="over-lay", OnSuccess="loginSuccess"}))
     {
 
 

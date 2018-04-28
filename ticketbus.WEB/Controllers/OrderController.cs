@@ -114,7 +114,9 @@ namespace ticketbus.WEB.Controllers
                 return PartialView("PaymentCard", new PaymentCardViewModel { OrderInfo = infoObject });
             else if (PaymentOption == "webmoney")
                 return PartialView("WebMoney", new WebMoneyViewModel { OrderInfo = infoObject });
-            
+            else if (PaymentOption == "qiwi")
+                return PartialView("qiwi", new QIWIViewModel { OrderInfo = infoObject });
+
 
             return HttpNotFound();
         }

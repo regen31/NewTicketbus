@@ -32,7 +32,18 @@ function IsLogin(){
     })
 }
 
-
+//succesful login
+function loginSuccess(result) {    
+    if (result.success) {
+        $.get('Home/GreetingBlock', function (result) {            
+            $('#greetblock').empty().append(result);            
+        })
+        IsLogin();
+        $('.grey-overlay').hide();
+    }
+        
+    
+}
 //History PartialView
 $('#OrderHistoryButton').click(function (event) {
     $.ajax({

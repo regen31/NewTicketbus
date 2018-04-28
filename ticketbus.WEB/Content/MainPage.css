@@ -71,6 +71,7 @@
 .content-block{
     display: block;
     width: 1000px;
+    min-height: 750px;
     margin: auto;
     padding: 5px;
     padding-top: 10px;    

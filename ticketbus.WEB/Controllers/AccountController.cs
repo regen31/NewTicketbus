@@ -35,7 +35,7 @@ namespace ticketbus.WEB.Controllers
             if (ModelState.IsValid)
             {
                 FormsAuthentication.SetAuthCookie(user.Login, true);
-                return RedirectToAction("Index", "Home");
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
             }
 
             return PartialView("LoginForm");
