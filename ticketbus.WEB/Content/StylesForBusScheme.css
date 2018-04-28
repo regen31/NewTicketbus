@@ -3,13 +3,13 @@
      }  
 
      #scheme-window{
-         display: block;
+         display: none;
          position: relative;
          margin: auto;         
          width: 600px;
          min-height: 320px;
          background-color: white;
-         border: 4px double black;
+         border: 4px double black;         
          
      }
      .bus-container{

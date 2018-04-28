@@ -18,6 +18,6 @@ namespace ticketbus.WEB.Models
         [Required(ErrorMessage = "Введите пароль")]
         [Display(Name = "Пароль")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public string Password { get; set; }        
     }
 }

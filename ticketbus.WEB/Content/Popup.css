@@ -1,4 +1,4 @@
-﻿.loginform{
+﻿.loginform, .register-form{
 display:block;
 width: 200px;
 margin: auto;
@@ -8,6 +8,15 @@ border: 2px solid black;
 border-radius: 10px;
 }
 
+.loginform, .register-form label{
+    font-size: 0.9em;
+}
+
+.register-form input[type="submit"]{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+}
 
 .user-orders-partial{
     display:block;
@@ -25,7 +34,8 @@ border-radius: 10px;
 }
 
 #Name,
-#Password
+#Password,
+#PasswordConfirm
 {
     width: 96%;
     margin-bottom: 10px;

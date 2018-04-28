@@ -55,11 +55,10 @@ namespace ticketbus.WEB.Controllers
                         FinalPoint = order.FinalPoint,
                         BuyDay = order.BuyDay,
                     });
-                }
-                return PartialView(TicketsList);
+                }                
             }
-            else
-                return PartialView("NoOrders");
+            return PartialView(TicketsList);
+
         }
 
         [HttpPost]

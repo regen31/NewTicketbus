@@ -32,7 +32,7 @@ function IsLogin(){
     })
 }
 
-//succesful login
+//succesful login or registration
 function loginSuccess(result) {    
     if (result.success) {
         $.get('Home/GreetingBlock', function (result) {            
@@ -91,6 +91,21 @@ $(document).ready(function () {
 
     $('#over-lay').on('click', '#SignInForm', function (event) {
        event.stopPropagation();
+    })
+
+//sign up form
+    var $signupcontainer = $('#register-overlay');
+    $signupcontainer.hide();
+
+    RegistrationButton.onclick = function () {
+
+        $signupcontainer.fadeIn(200);
+    }
+    $signupcontainer.click(function (event) {
+        $signupcontainer.fadeOut(200);
+    })
+    $('#register-overlay').on('click', '#SignUpForm', function (event) {
+        event.stopPropagation();
     })
 
     

@@ -1,0 +1,25 @@
+﻿@model ticketbus.WEB.Models.UserRegisterViewModel
+
+<div class="register-form" id="SignUpForm">
+
+    @using (Ajax.BeginForm("RegistrForm", "Account", null, new AjaxOptions { UpdateTargetId = "register-overlay", OnSuccess = "loginSuccess" }))
+    {
+
+
+        @Html.LabelFor(x => x.Name)<br />
+        @Html.ValidationMessageFor(x => x.Name)
+        @Html.EditorFor(x => x.Name)
+
+
+        @Html.LabelFor(x => x.Password)<br />
+        @Html.ValidationMessageFor(x => x.Password)
+        @Html.EditorFor(x => x.Password)
+
+        @Html.LabelFor(x => x.PasswordConfirm)<br />
+        @Html.ValidationMessageFor(x => x.PasswordConfirm)
+        @Html.EditorFor(x => x.PasswordConfirm)
+        <input type="submit" class="submitbutton" value="Зарегистрироваться" />
+
+        @Html.ValidationSummary(true)
+    }
+</div>

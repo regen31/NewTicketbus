@@ -35,5 +35,18 @@ namespace ticketbus.Domain.Repositories
                 where t.Buyer == username && t.Status == "Bought"
                 select t;
         }
+
+       public void AddUser(string username, string password)
+        {
+            Role role = db.Roles.First();
+
+            db.Users.Add(new User {
+                Login = username,
+                Password = password,
+                UserRole = role,
+            });
+
+            db.SaveChanges();
+        }
     }
 }

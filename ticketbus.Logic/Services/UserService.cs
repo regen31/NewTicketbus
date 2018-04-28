@@ -62,5 +62,10 @@ namespace ticketbus.Logic.Services
             }
             return OrdersDTO;
         }
+
+        public void AddUser(string username, string password)
+        {
+            UserRepository.AddUser(username, password);
+        }
     }
 }

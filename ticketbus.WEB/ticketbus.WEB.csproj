@@ -183,6 +183,7 @@
     <Compile Include="Models\OrderInfoViewModel.cs" />
     <Compile Include="Models\PaymentCardViewModel.cs" />
     <Compile Include="Models\QIWIViewModel.cs" />
+    <Compile Include="Models\UserRegisterViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\WebMoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,6 +191,7 @@
     <Compile Include="Models\RouteViewModel.cs" />
     <Compile Include="Providers\CustomRoleProvider.cs" />
     <Compile Include="ValidationHelpers\PasswordAttribute.cs" />
+    <Compile Include="ValidationHelpers\UsernameAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\MainPage.css" />
@@ -251,6 +253,7 @@
     <Content Include="Views\Order\WebMoney.cshtml" />
     <Content Include="Views\Home\GreetingBlock.cshtml" />
     <Content Include="Views\Order\qiwi.cshtml" />
+    <Content Include="Views\Account\RegistrForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

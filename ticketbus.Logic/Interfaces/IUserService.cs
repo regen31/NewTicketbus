@@ -12,5 +12,6 @@ namespace ticketbus.Logic.Interfaces
         UserDTO FindUser(string name);
         
         IEnumerable<BoughtTicketDTO> GetUsersOrders(string username);
+        void AddUser(string username, string password);
     }
 }

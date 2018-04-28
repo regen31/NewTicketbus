@@ -41,7 +41,22 @@ namespace ticketbus.WEB.Controllers
             return PartialView("LoginForm");
         }
 
+        public ActionResult RegistrForm()
+        {
+            return PartialView();
+        }
 
+        [HttpPost]
+        public ActionResult RegistrForm(UserRegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserRepository.AddUser(model.Name, model.Password);
+                FormsAuthentication.SetAuthCookie(model.Name, true);
+                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            }
+            return PartialView();
+        }
 
         public JsonResult IsLogin()
         {

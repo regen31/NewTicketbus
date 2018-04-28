@@ -47,16 +47,17 @@ $('body').on('click', '.order-button', function () {
             success: function (result) {
                 $whiteoverlay.hide();
                 $('body').append("<div class='grey-overlay' id='SchemeContainer'></div>");
-                $('#SchemeContainer').append(result);
-
+                $('#SchemeContainer').append(result);                
+                
                 seatsList.forEach(function (item, i, seatsList) {
                     var element = document.getElementById(item);
                     element.classList.remove('available');
                     element.classList.add("unavailable");
-                });
+                });                
                 $BusScheme = $('#SchemeContainer');
+                $('#scheme-window').css('display', 'block');
             }
-        })
+        })       
     } else {
         $('#not-login-message').css('display', 'inline-block');
     }
@@ -96,7 +97,7 @@ $('body').on('click', '#ContinueFromScheme', function (event) {
             success: function (result) {
                 $whiteoverlay.hide();
                 $('body').append("<div class='grey-overlay' id='PaymentsContainer'></div>");
-                $('#PaymentsContainer').append(result);
+                $('#PaymentsContainer').append(result);               
             }
         });
     }    
