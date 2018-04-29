@@ -33,15 +33,20 @@ namespace ticketbus.WEB.Controllers
         [HttpPost]
         public ActionResult ShowTable(RouteViewModel route)
         {
-            List<RouteViewModel> ViewList = new List<RouteViewModel>();
+            
+                List<RouteViewModel> ViewList = new List<RouteViewModel>();
 
-            var FindedRoutes = RouteRepository.GetFindedRoutes(route.StartPoint, route.FinalPoint, route.DateForSearch);
+                var FindedRoutes = RouteRepository.GetFindedRoutes(route.StartPoint, route.FinalPoint, route.DateForSearch);
 
-            foreach (var FindedRoute in FindedRoutes)
-            {
-                ViewList.Add(new RouteViewModel() { DateForSearch = route.DateForSearch, Id = FindedRoute.Id, StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime, Seats = FindedRoute.Seats, });
-            }
-            return PartialView("ShowTable", ViewList);
+                foreach (var FindedRoute in FindedRoutes)
+                {
+                    ViewList.Add(new RouteViewModel() { DateForSearch = route.DateForSearch, Id = FindedRoute.Id, StartPoint = FindedRoute.StartPoint, FinalPoint = FindedRoute.FinalPoint, DepartureTime = FindedRoute.DepartureTime, ArrivalTime = FindedRoute.ArrivalTime, Seats = FindedRoute.Seats, });
+                }
+                                
+            if (ViewList.Count <= 0 || route.DateForSearch < DateTime.Now.Date)
+                return PartialView("NothingFound");
+            else
+                return PartialView("ShowTable", ViewList);
         }
 
         [ChildActionOnly]

@@ -8,7 +8,7 @@
     @using (Ajax.BeginForm("ShowTable", new AjaxOptions { UpdateTargetId = "tableBody", OnSuccess = "IsLogin", LoadingElementId = "white-overlay" }))
     {
         <div class="block dateblock">
-            <span>Дата отправления</span><br /> @Html.EditorFor(x => x.DateForSearch)
+            <span>Дата отправления</span><br />@Html.ValidationSummary() @Html.EditorFor(x => x.DateForSearch)
         </div>
         <div class="block">
             <span>Точка отправления</span><br />@Html.EditorFor(x => x.StartPoint)
